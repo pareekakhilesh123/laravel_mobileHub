@@ -1,0 +1,166 @@
+/*
+::
+:: Theme Name: Postup - One Page Parallax Template
+:: Email: Nourramadan144@gmail.com
+:: Author URI: https://themeforest.net/user/ar-coder
+:: Author: ar-coder
+:: Version: 1.1
+::
+*/
+
+/* :: Medium devices */
+@media (max-width: 991px) {
+
+    /* :: Navbar */
+    .navbar {
+        background-color: #FFF;
+        border-bottom: 1px solid #F1F1F1;
+        padding: 0px 16px;
+    }
+    .navbar .navbar-brand {
+        padding: 30px 0;
+        color: #3498DB;
+        display: block;
+        margin: 0 auto;
+    }
+    .navbar .navbar-toggler {
+        outline: none;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 25px;
+    }
+    .navbar .navbar-toggler i {
+        font-size: 30px;
+        color: #444;
+    }
+    .navbar .navbar-toggler i:hover {
+        color: #3498DB;
+    }
+    .navbar .navbar-nav {
+        margin-top: 10px;
+    }
+    .navbar .navbar-nav .nav-link {
+        color: #444;
+        margin: 0;
+        padding: 0 0 15px 0;
+    }
+    .navbar .navbar-nav .nav-link.active {
+        color: #3498DB;
+    }
+    .navbar .navbar-nav .nav-link:before {
+        position: unset;
+    }
+    .navbar .nav-item.dropdown .dropdown-menu {
+        display: none;
+    }
+    .navbar .nav-item.dropdown.show .dropdown-menu {
+        -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .navbar .social-media {
+        position: absolute;
+        right: 0;
+        top: 30px;
+    }
+    .navbar .social-media .icon-nav li a i {
+        color: #444;
+    }
+
+    /* :: Header */
+    .header .banner .handline {
+        font-size: 50px;
+    }
+
+    /* :: About One */
+    .about-one .about-text-box {
+        padding: 0 30px;
+    }
+
+    /* :: Presentation */
+    .background-section {
+        width: 100%;
+        height: 25%;
+    }
+    .presentation {
+        margin-top: 50px;
+    }
+
+    /* :: Support */
+    .support .support-box input {
+        margin-bottom: 30px;
+    }
+
+    /* :: Pagination Blog Page */
+    .pagination-blog-area {
+        margin-bottom: 50px;
+    }
+
+    /* :: Add Comments Single Blog Page */
+    .blog.area .add-comments {
+        margin-bottom: 50px;
+    }
+}
+
+/* :: Small devices */
+@media (max-width: 768px) {
+
+    /* :: Header */
+    .header .banner .handline {
+        font-size: 42px;
+    }
+
+    /* :: About One and Contact */
+    .about-one .about-text-box,
+    .contact .contact-text-box {
+        padding: 50px 80px;
+    }
+
+    /* :: (comments-box.reply) Single Blog Page */
+    .blog.area .item-comments .inner-comments .comments-box.reply {
+        margin-left: 0px;
+    }
+}
+
+/* :: Extra small devices */
+@media (max-width: 575px) {
+
+    /* :: Side Menu Box */
+    .side-menu-box {
+        width: 100%;
+        right: -100%;
+    }
+
+    /* :: Header */
+    .header .banner .handline {
+        font-size: 22px;
+    }
+    .header .banner p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    .header .banner .buttons a:first-of-type {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    /* :: About One and Contact */
+    .about-one .about-text-box,
+    .contact .contact-text-box {
+        padding: 50px 30px;
+    }
+
+    /* :: Share Post Single Blog Page */
+    .blog.area .blog-item .text-blog .share-post ul {
+        float: none;
+    }
+
+}
