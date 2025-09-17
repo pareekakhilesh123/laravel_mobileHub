@@ -28,7 +28,7 @@
             <!-- Form Section -->
             <div class="card mt-5 shadow-lg border-0">
                 <div class="card-header" style="padding: 20px 20px 10px 20px;">
-                    <h4 class="mb-3">Add Master</h4>
+                    <h4 class="mb-3">Add Category</h4>
                 </div>
                 <div class="card-body">
                     <form method="post" action="{{ route('master') }}" id="itemForm" enctype="multipart/form-data"
@@ -36,43 +36,43 @@
                         @csrf
                         <div class="row g-3">
 
-                        <div class="col-6">
-<div class="clo-12">
-    <label for="label" class="form-label ">Label</label>
-                                <input type="text" name="label" class="form-control" id="label"
-                                    placeholder="Enter Label" required />
-                                <div class="invalid-feedback">Please enter a label.</div>
-</div>
-
-                              <div class="mb-3 col-12" >
-                        <label for="priority" class="form-label fw-bold">Priority</label>
-                        <select name="priority" id="priority" class="form-select" required>
-                            <option value="" selected disabled>-- Select Priority --</option>
-                            @for ($i = 1; $i <= 10; $i++)
-                                <option value="{{ $i }}">{{ $i }}</option>
-                            @endfor
-                        </select>
-                        <div class="invalid-feedback">Please select a priority.</div>
-                    </div>
-                        </div>
-                      
-                            <div class="col-md-6">
-                             <div class=" d-flex align-items-center">
-                                <div id="dropZone"
-                                    class="position-relative d-inline-flex align-items-center justify-content-center rounded upload-box"
-                                    style="border: 2px dotted #000; width: 150px; height: 150px; background-color: #f9f9f9; cursor: pointer;">
-                                    <input type="file" name="upload" id="image" accept="image/*" class="d-none" />
-                                    <img id="preview" class="d-none rounded" alt="Preview"
-                                        style="max-width: 120px; max-height: 120px; object-fit: contain;" />
-                                    <button type="button" id="closePreview"
-                                        class="btn-close position-absolute top-0 start-100 translate-middle d-none"
-                                        aria-label="Close"></button>
-                                    <span id="placeholderText" class="text-muted small text-center">Click or Drop
-                                        Image</span>
+                            <div class="col-6">
+                                <div class="clo-12">
+                                    <label for="label" class="form-label ">Category Name </label>
+                                    <input type="text" name="label" class="form-control" id="label"
+                                        placeholder="Enter Label" required />
+                                    <div class="invalid-feedback">Please enter a Category Name .</div>
                                 </div>
-                                <small class="text-muted ms-2">* Image must be 1x1 ratio and less than 1MB
-                                    (optional).</small>
+
+                                <div class="mb-3 col-12">
+                                    <label for="priority" class="form-label fw-bold">Priority</label>
+                                    <select name="priority" id="priority" class="form-select">
+                                        <option value="" selected disabled>-- Select Priority --</option>
+                                        @for ($i = 1; $i <= 10; $i++)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                    <div class="invalid-feedback">Please select a priority.</div>
+                                </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class=" d-flex align-items-center">
+                                    <div id="dropZone"
+                                        class="position-relative d-inline-flex align-items-center justify-content-center rounded upload-box"
+                                        style="border: 2px dotted #000; width: 150px; height: 150px; background-color: #f9f9f9; cursor: pointer;">
+                                        <input type="file" name="upload" id="image" accept="image/*" class="d-none" />
+                                        <img id="preview" class="d-none rounded" alt="Preview"
+                                            style="max-width: 120px; max-height: 120px; object-fit: contain;" />
+                                        <button type="button" id="closePreview"
+                                            class="btn-close position-absolute top-0 start-100 translate-middle d-none"
+                                            aria-label="Close"></button>
+                                        <span id="placeholderText" class="text-muted small text-center">Click or Drop
+                                            Image</span>
+                                    </div>
+                                    <small class="text-muted ms-2">* Image must be 1x1 ratio and less than 1MB
+                                        (optional).</small>
+                                </div>
                             </div>
 
                             <div class="col-md-6 d-none">
@@ -82,10 +82,10 @@
                                 <div class="invalid-feedback">Please enter a value.</div>
                             </div>
 
-                           
+
 
                             <!-- Image Upload (optional) -->
-                           
+
                         </div>
 
                         <div class="mt-4 text-end">
@@ -105,8 +105,8 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Label</th>
-                                <th>Value</th>
+                                <th>Category Name </th>
+                                <th>Priority</th>
                                 <th>Image</th>
                                 <th style="width: 200px;">Action</th>
                             </tr>
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td class="text-center">{{ $counter++ }}</td>
                                     <td>{{ $d->label }}</td>
-                                    <td>{{ $d->value }}</td>
+                                    <td>{{ $d->priority }}</td>
                                     <td>
                                         @if($d->image)
                                             <img src="{{ asset('allimage/' . $d->image) }}"
@@ -128,11 +128,19 @@
 
                                     <td>
                                         <!-- Edit Button -->
-                                        <a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="tooltip"
-                                            title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                            <span class="d-none d-md-inline"> Edit</span>
-                                        </a>
+                                        <!-- Edit Button -->
+<a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+   data-bs-target="#editModal"
+   data-id="{{ $d->id }}"
+   data-label="{{ $d->label }}"
+   data-priority="{{ $d->priority }}"
+   data-value="{{ $d->value }}"
+   data-image="{{ $d->image }}"
+   title="Edit">
+    <i class="bi bi-pencil-square"></i>
+    <span class="d-none d-md-inline"> Edit</span>
+</a>
+
 
                                         <!-- Delete Button -->
 
@@ -162,6 +170,63 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form method="post" action="{{ route('master') }}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="id" id="editId">
+
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-6">
+              <label class="form-label">Category Name</label>
+              <input type="text" name="label" id="editLabel" class="form-control" required>
+            </div>
+
+            <div class="col-6">
+              <label class="form-label">Priority</label>
+              <select name="priority" id="editPriority" class="form-select">
+                <option value="" disabled>-- Select Priority --</option>
+                @for ($i = 1; $i <= 10; $i++)
+                  <option value="{{ $i }}">{{ $i }}</option>
+                @endfor
+              </select>
+            </div>
+
+            <div class="col-6 d-none">
+              <label class="form-label">Value</label>
+              <input type="text" name="value" id="editValue" class="form-control" required>
+            </div>
+
+        <div class="col-6">
+  <label class="form-label">Image</label>
+  <input type="file" name="upload" class="form-control" id="editUpload">
+  <img id="editPreview" src="" class="mt-2 rounded d-none" style="max-width:100px;">
+</div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -266,6 +331,57 @@
                 }, false);
             });
         </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var editModal = document.getElementById('editModal');
+
+    editModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+
+        var id = button.getAttribute('data-id');
+        var label = button.getAttribute('data-label');
+        var priority = button.getAttribute('data-priority');
+        var value = button.getAttribute('data-value');
+        var image = button.getAttribute('data-image');
+
+        document.getElementById('editId').value = id;
+        document.getElementById('editLabel').value = label;
+        document.getElementById('editPriority').value = priority;
+        document.getElementById('editValue').value = value;
+
+        var preview = document.getElementById('editPreview');
+        if (image) {
+            preview.src = "/allimage/" + image;
+            preview.classList.remove("d-none");
+        } else {
+            preview.classList.add("d-none");
+        }
+
+
+        
+    });
+});
+</script>
+<script>
+  // Image preview update
+  document.getElementById('editUpload').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('editPreview');
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        preview.src = e.target.result;
+        preview.classList.remove('d-none');
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+
+
+
         <script>
             function deleteCategory(id) {
                 Swal.fire({
@@ -298,7 +414,7 @@
                     paging: true,
                     searching: true,
                     ordering: true,
-                    lengthMenu: [5, 10, 25, 50],
+                    lengthMenu: [10, 25, 50],
                     language: {
                         search: "Search",
                         searchPlaceholder: "Search records..."

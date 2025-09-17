@@ -47,7 +47,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     // detete
     Route::get('delete-category/{id}', [Maincategory::class, 'detelecate']);
-
+    // Route::put('/master/{id}', [Maincategory::class, 'update'])->name('master.update');
 
 
 });
