@@ -35,22 +35,29 @@
                         class="needs-validation" novalidate>
                         @csrf
                         <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="label" class="form-label">Label</label>
+
+                        <div class="col-6">
+<div class="clo-12">
+    <label for="label" class="form-label ">Label</label>
                                 <input type="text" name="label" class="form-control" id="label"
                                     placeholder="Enter Label" required />
                                 <div class="invalid-feedback">Please enter a label.</div>
-                            </div>
+</div>
 
-                            <div class="col-md-6 d-none">
-                                <label for="value" class="form-label">Value</label>
-                                <input type="text" name="value" class="form-control" id="value"
-                                    placeholder="Auto-filled from Label" required />
-                                <div class="invalid-feedback">Please enter a value.</div>
-                            </div>
-
-                            <!-- Image Upload (optional) -->
-                            <div class="col-md-6 d-flex align-items-center">
+                              <div class="mb-3 col-12" >
+                        <label for="priority" class="form-label fw-bold">Priority</label>
+                        <select name="priority" id="priority" class="form-select" required>
+                            <option value="" selected disabled>-- Select Priority --</option>
+                            @for ($i = 1; $i <= 10; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+                        <div class="invalid-feedback">Please select a priority.</div>
+                    </div>
+                        </div>
+                      
+                            <div class="col-md-6">
+                             <div class=" d-flex align-items-center">
                                 <div id="dropZone"
                                     class="position-relative d-inline-flex align-items-center justify-content-center rounded upload-box"
                                     style="border: 2px dotted #000; width: 150px; height: 150px; background-color: #f9f9f9; cursor: pointer;">
@@ -66,6 +73,19 @@
                                 <small class="text-muted ms-2">* Image must be 1x1 ratio and less than 1MB
                                     (optional).</small>
                             </div>
+                            </div>
+
+                            <div class="col-md-6 d-none">
+                                <label for="value" class="form-label">Value</label>
+                                <input type="text" name="value" class="form-control" id="value"
+                                    placeholder="Auto-filled from Label" required />
+                                <div class="invalid-feedback">Please enter a value.</div>
+                            </div>
+
+                           
+
+                            <!-- Image Upload (optional) -->
+                           
                         </div>
 
                         <div class="mt-4 text-end">
