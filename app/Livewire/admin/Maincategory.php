@@ -10,6 +10,7 @@ class Maincategory extends Component
     public function render()
     {
         $data = Categories::get();
+        
         return view('livewire.admin.maincategory', ['show' => $data])->layout('layouts.adminheader');
    }
 

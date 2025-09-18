@@ -12,7 +12,8 @@ class Subcategory extends Component
     public function render()
     {
             $data = Categories::get();
-        return view('livewire.admin.subcategory' ,  ['show' => $data] )->layout('layouts.adminheader');;
+            $sub = subcate::get();
+        return view('livewire.admin.subcategory' ,  ['cate' => $data,'subget'=>$sub] )->layout('layouts.adminheader');;
     }
 
 
@@ -40,5 +41,6 @@ class Subcategory extends Component
     }
 
 
+    
 
 }

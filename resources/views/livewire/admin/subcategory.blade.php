@@ -45,7 +45,7 @@
                                     <label for="parent_id" class="form-label">Parent Category</label>
                                     <select name="cate_id" id="parent_id" class="form-select" required>
                                         <option value="" selected disabled>-- Select Category --</option>
-                                        @foreach ($show as $cat)
+                                        @foreach ($cate as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->label }}</option>
                                         @endforeach
                                     </select>
@@ -115,8 +115,164 @@
                         </div>
 
 
-
+</div>
+            </div>
                     </form>
+                    
+                    <div class="card mt-5 shadow-lg border-0">
+                <div class="card-header" style="padding: 20px 20px 10px 20px;">
+                    <h4 class="mb-3">Sub category List</h4>
+                </div>
+                <div class="card-body">
+                    <table id="touchTable" class="table table-hover table-striped table-bordered align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Sub Category Name </th>
+                                 <th>Category Name</th>
+                                <th>Priority</th>
+                                <th>Image</th>
+                                <th style="width: 200px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php $counter = 1; @endphp
+                            @foreach ($subget as $d)
+                                <tr>
+                                    <td class="text-center">{{ $counter++ }}</td>
+                                    <td>{{ $d->label }}</td>
+                                     <td>
+
+                                        @foreach($cate as $c)
+                                        @if($c->id == $d->category_id)
+                                        {{ $c->label }}
+                                        @endif
+
+                                        @endforeach
+                                    
+                                    </td>
+                                    <td>{{ $d->priority }}</td>
+                                    <td>
+                                        @if($d->image)
+                                            <img src="{{ asset('allimage/' . $d->image) }}"
+                                                class="img-thumbnail rounded shadow-sm" style="height:40px; object-fit:cover;">
+                                        @else
+                                            <span class="text-muted">No Image</span>
+                                        @endif
+
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <!-- Edit Button -->
+                                        <a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+                                            data-bs-target="#editModal<?php    echo $d->id ?>" data-id="{{ $d->id }}" data-label="{{ $d->label }}"
+                                            data-priority="{{ $d->priority }}" data-value="{{ $d->value }}"
+                                            data-image="{{ $d->image }}" title="Edit">
+                                            <i class="bi bi-pencil-square"></i>
+                                            <span class="d-none d-md-inline"> Edit</span>
+                                        </a>
+
+
+                                        <!-- Delete Button -->
+
+                                        <button type="button" onclick="deleteCategory(<?php    echo $d->id ?>)"
+                                            class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                            <span class="d-none d-md-inline"> Delete</span>
+                                        </button>
+                                    </td>
+
+                                    </td>
+                                </tr>
+
+                                <!-- Edit Modal -->
+                                <div class="modal fade" id="editModal<?php    echo $d->id ?>" tabindex="-1"
+                                    aria-labelledby="editModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <form method="post" action="{{ route('cateupd') }}"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
+
+                                                <div class="modal-body">
+                                                    <div class="row g-3">
+                                                        <div class="col-6">
+                                                            <label class="form-label"> Category Name </label>
+                                                            <input type="text" name="label" id="editLabel"
+                                                                class="form-control" value="{{ $d->label }}" required>
+                                                        </div>
+                                                         <div class="col-6">
+                                                            <label class="form-label">Sub Category Name </label>
+                                                            <input type="text" name="label" id="editLabel"
+                                                                class="form-control" value="{{ $d->label }}" required>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <label class="form-label">Priority</label>
+                                                            <select name="priority" id="editPriority" class="form-select">
+                                                                <option value="" disabled>-- Select Priority --</option>
+                                                                @for ($i = 1; $i <= 10; $i++)
+                                                                    <option value="{{ $i }}" {{ $d->priority == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                                                @endfor
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-6 d-none">
+                                                            <label class="form-label">Value</label>
+                                                            <input type="text" name="value" id="editValue" value="{{ $d->value }}"
+                                                                class="form-control" required>
+                                                        </div>
+
+                                                        <div class="col-6">
+      <label class="form-label">Image</label>
+    <input type="file" name="upload"
+           class="form-control editUpload"
+           data-preview="editPreview{{ $d->id }}">
+
+    <!-- Old Image Preview -->
+    <img id="editPreview{{ $d->id }}"
+         src="{{ $d->image ? asset('allimage/'.$d->image) : '' }}"
+         class="mt-2 rounded {{ $d->image ? '' : 'd-none' }}"
+         style="max-width:100px;">
+</div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success">Update</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+            <div id="toastBox" class="toast align-items-center text-bg-dark border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body" id="toastMessage"></div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                        data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        </div>
+
 
                 </div>
             </div>
