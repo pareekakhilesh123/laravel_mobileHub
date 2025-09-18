@@ -54,5 +54,32 @@ class Subcategory extends Component
     }
 
 
+     public function updsubcate(Request $request)
+    {
+        $updid = $request->updid;
+
+        // dd($updid);
+
+        $upd = subcate::where('id', $updid)->first();
+
+        $upd->label = $request->label;
+        $upd->value = $request->label;
+        $upd->priority = $request->priority ?? 10;
+        // dd($upd->priority);
+
+        if ($request->hasFile('upload')) {
+
+            $profile = time() . '.' . $request->file('upload')->extension();
+            $request->file('upload')->move(public_path('allimage'), $profile);
+            $upd->image = $profile;
+        }
+
+        $upd->save();
+
+        return back()->with('success', 'sub Category Updated successfully!');;
+    }
+
+
+
 
 }

@@ -50,7 +50,7 @@ class Maincategory extends Component
     }
 
 
-    public function updcate(Request $request)
+    public function cateupd(Request $request)
     {
         $updid = $request->updid;
 

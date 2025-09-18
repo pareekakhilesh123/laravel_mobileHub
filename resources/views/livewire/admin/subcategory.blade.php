@@ -196,9 +196,8 @@
                                             </div>
 
                                             <form method="post" 
-                                        
-                                            
-                                                enctype="multipart/form-data">
+                                         action="{{ route('subcateupd') }}"
+                                              enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
 

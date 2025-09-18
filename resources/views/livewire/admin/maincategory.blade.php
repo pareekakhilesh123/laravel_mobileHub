@@ -162,7 +162,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
 
-                                            <form method="post" action="{{ route('cateupd') }}"
+                                            <form method="post" action="{{route('updatecateupdate')}}"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
@@ -234,7 +234,8 @@
                 </div>
             </div>
         </div>
-        
+
+    
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {

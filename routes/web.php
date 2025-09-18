@@ -45,12 +45,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post('/admin/main_category', [Maincategory::class, 'create'])->name('master');
     // Route::get('/insert_category',[Insertcategory::class,'create'])->name('touch');
 
-    // detete
+    // routes main cateogory 
+    Route::post('/admin/main_category', [Maincategory::class, 'create'])->name('master');
     Route::get('delete-category/{id}', [Maincategory::class, 'detelecate']);
-    Route::post('/update_category', [Maincategory::class, 'updcate'])->name('cateupd');
+    Route::post('category_update',[Maincategory::class,'cateupd'])->name('updatecateupdate');
+    
 
 
     // subcategory routes 
         Route::post('/admin/sub_category', [Subcategory::class, 'subcreate'])->name('subcreate_category');
-          Route::get('delete-subcategory/{id}', [Subcategory::class, 'detelesubcate']);
+        Route::get('delete-subcategory/{id}', [Subcategory::class, 'detelesubcate']);
+        Route::post('/update_category', [Subcategory::class, 'updsubcate'])->name('subcateupd');
 });
