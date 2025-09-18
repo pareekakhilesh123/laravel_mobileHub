@@ -52,4 +52,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     // subcategory routes 
         Route::post('/admin/sub_category', [Subcategory::class, 'subcreate'])->name('subcreate_category');
+          Route::get('delete-subcategory/{id}', [Subcategory::class, 'detelesubcate']);
 });

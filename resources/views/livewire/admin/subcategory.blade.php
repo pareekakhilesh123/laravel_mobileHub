@@ -174,7 +174,7 @@
 
                                         <!-- Delete Button -->
 
-                                        <button type="button" onclick="deleteCategory(<?php    echo $d->id ?>)"
+                                        <button type="button" onclick="deleteSubCategory(<?php    echo $d->id ?>)"
                                             class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Delete">
                                             <i class="bi bi-trash"></i>
                                             <span class="d-none d-md-inline"> Delete</span>
@@ -365,6 +365,26 @@
                 valueInput.value = labelInput.value.trim().toLowerCase().replace(/\s+/g, "_");
             });
             </script>
+
+               <script>
+            function deleteSubCategory(id) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "This Sub Category item will be permanently deleted!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'Cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        window.location.href = `/delete-subcategory/${id}`;
+                    }
+                });
+            }
+        </script>
 
 
     </body>

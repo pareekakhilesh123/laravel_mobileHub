@@ -42,5 +42,17 @@ class Subcategory extends Component
 
 
     
+    public function detelesubcate($id)
+    {
+        $category = subcate::find($id);
+
+        if ($category) {
+            $category->delete();
+        }
+
+        return back()->with('success', 'Sub Category deleted successfully!');
+    }
+
+
 
 }
