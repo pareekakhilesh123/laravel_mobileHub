@@ -195,7 +195,9 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                             </div>
 
-                                            <form method="post" action="{{ route('cateupd') }}"
+                                            <form method="post" 
+                                        
+                                            
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
@@ -204,8 +206,15 @@
                                                     <div class="row g-3">
                                                         <div class="col-6">
                                                             <label class="form-label"> Category Name </label>
-                                                            <input type="text" name="label" id="editLabel"
-                                                                class="form-control" value="{{ $d->label }}" required>
+                                                            <select name="cate_id" id="parent_id" class="form-select" required>
+    <option value="" selected disabled>-- Select Category --</option>
+    @foreach ($cate as $cat)
+        <option value="{{ $cat->id }}" {{ $d->category_id == $cat->id ? 'selected' : '' }}>
+            {{ $cat->label }}
+        </option>
+    @endforeach
+</select>
+                                    <div class="invalid-feedback">Please select a parent category.</div>
                                                         </div>
                                                          <div class="col-6">
                                                             <label class="form-label">Sub Category Name </label>
