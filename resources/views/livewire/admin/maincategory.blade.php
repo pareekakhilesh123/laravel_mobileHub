@@ -38,7 +38,8 @@
 
                             <div class="col-6">
                                 <div class="clo-12">
-                                    <label for="label" class="form-label ">Category Name </label>
+                                    <label for="label" class="form-label ">Category Name <span
+                                            class="text-danger">*</span> </label>
                                     <input type="text" name="label" class="form-control" id="label"
                                         placeholder="Enter Label" required />
                                     <div class="invalid-feedback">Please enter a Category Name .</div>
@@ -129,17 +130,13 @@
                                     <td>
                                         <!-- Edit Button -->
                                         <!-- Edit Button -->
-<a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
-   data-bs-target="#editModal"
-   data-id="{{ $d->id }}"
-   data-label="{{ $d->label }}"
-   data-priority="{{ $d->priority }}"
-   data-value="{{ $d->value }}"
-   data-image="{{ $d->image }}"
-   title="Edit">
-    <i class="bi bi-pencil-square"></i>
-    <span class="d-none d-md-inline"> Edit</span>
-</a>
+                                        <a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+                                            data-bs-target="#editModal<?php    echo $d->id ?>" data-id="{{ $d->id }}" data-label="{{ $d->label }}"
+                                            data-priority="{{ $d->priority }}" data-value="{{ $d->value }}"
+                                            data-image="{{ $d->image }}" title="Edit">
+                                            <i class="bi bi-pencil-square"></i>
+                                            <span class="d-none d-md-inline"> Edit</span>
+                                        </a>
 
 
                                         <!-- Delete Button -->
@@ -153,6 +150,73 @@
 
                                     </td>
                                 </tr>
+
+                                <!-- Edit Modal -->
+                                <div class="modal fade" id="editModal<?php    echo $d->id ?>" tabindex="-1"
+                                    aria-labelledby="editModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <form method="post" action="{{ route('cateupd') }}"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
+
+                                                <div class="modal-body">
+                                                    <div class="row g-3">
+                                                        <div class="col-6">
+                                                            <label class="form-label"> Category Name </label>
+                                                            <input type="text" name="label" id="editLabel"
+                                                                class="form-control" value="{{ $d->label }}" required>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <label class="form-label">Priority</label>
+                                                            <select name="priority" id="editPriority" class="form-select">
+                                                                <option value="" disabled>-- Select Priority --</option>
+                                                                @for ($i = 1; $i <= 10; $i++)
+                                                                    <option value="{{ $i }}" {{ $d->priority == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                                                @endfor
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-6 d-none">
+                                                            <label class="form-label">Value</label>
+                                                            <input type="text" name="value" id="editValue" value="{{ $d->value }}"
+                                                                class="form-control" required>
+                                                        </div>
+
+                                                        <div class="col-6">
+      <label class="form-label">Image</label>
+    <input type="file" name="upload"
+           class="form-control editUpload"
+           data-preview="editPreview{{ $d->id }}">
+
+    <!-- Old Image Preview -->
+    <img id="editPreview{{ $d->id }}"
+         src="{{ $d->image ? asset('allimage/'.$d->image) : '' }}"
+         class="mt-2 rounded {{ $d->image ? '' : 'd-none' }}"
+         style="max-width:100px;">
+</div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success">Update</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                         </tbody>
                     </table>
@@ -171,61 +235,28 @@
             </div>
         </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Har file input ke liye listener
+    document.querySelectorAll(".editUpload").forEach(input => {
+        input.addEventListener("change", function () {
+            let previewId = this.getAttribute("data-preview");
+            let preview = document.getElementById(previewId);
 
-        <!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+            if (this.files && this.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;   // New image preview
+                    preview.classList.remove("d-none");
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+});
+</script>
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
 
-      <form method="post" action="{{ route('master') }}" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <input type="hidden" name="id" id="editId">
-
-        <div class="modal-body">
-          <div class="row g-3">
-            <div class="col-6">
-              <label class="form-label">Category Name</label>
-              <input type="text" name="label" id="editLabel" class="form-control" required>
-            </div>
-
-            <div class="col-6">
-              <label class="form-label">Priority</label>
-              <select name="priority" id="editPriority" class="form-select">
-                <option value="" disabled>-- Select Priority --</option>
-                @for ($i = 1; $i <= 10; $i++)
-                  <option value="{{ $i }}">{{ $i }}</option>
-                @endfor
-              </select>
-            </div>
-
-            <div class="col-6 d-none">
-              <label class="form-label">Value</label>
-              <input type="text" name="value" id="editValue" class="form-control" required>
-            </div>
-
-        <div class="col-6">
-  <label class="form-label">Image</label>
-  <input type="file" name="upload" class="form-control" id="editUpload">
-  <img id="editPreview" src="" class="mt-2 rounded d-none" style="max-width:100px;">
-</div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success">Update</button>
-        </div>
-      </form>
-
-    </div>
-  </div>
-</div>
 
 
         <script>
@@ -323,62 +354,47 @@
                     if (!form.checkValidity()) {
                         event.preventDefault();
                         event.stopPropagation();
-                        showToast("❌ Please fill all required fields.", "danger");
+                        showToast(" Please fill all required fields.", "danger");
                     } else {
-                        showToast("✅ Item submitted successfully!", "success");
+                        showToast(" Item submitted successfully!", "success");
                     }
                     form.classList.add("was-validated");
                 }, false);
             });
         </script>
+        <!-- 
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var editModal = document.getElementById('editModal');
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var editModal = document.getElementById('editModal');
+                editModal.addEventListener('show.bs.modal', function (event) {
+                    var button = event.relatedTarget;
 
-    editModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
+                    var id = button.getAttribute('data-id');
+                    var label = button.getAttribute('data-label');
+                    var priority = button.getAttribute('data-priority');
+                    var value = button.getAttribute('data-value');
+                    var image = button.getAttribute('data-image');
 
-        var id = button.getAttribute('data-id');
-        var label = button.getAttribute('data-label');
-        var priority = button.getAttribute('data-priority');
-        var value = button.getAttribute('data-value');
-        var image = button.getAttribute('data-image');
+                    document.getElementById('editId').value = id;
+                    document.getElementById('editLabel').value = label;
+                    document.getElementById('editPriority').value = priority;
+                    document.getElementById('editValue').value = value;
 
-        document.getElementById('editId').value = id;
-        document.getElementById('editLabel').value = label;
-        document.getElementById('editPriority').value = priority;
-        document.getElementById('editValue').value = value;
-
-        var preview = document.getElementById('editPreview');
-        if (image) {
-            preview.src = "/allimage/" + image;
-            preview.classList.remove("d-none");
-        } else {
-            preview.classList.add("d-none");
-        }
+                    var preview = document.getElementById('editPreview');
+                    if (image) {
+                        preview.src = "/allimage/" + image;
+                        preview.classList.remove("d-none");
+                    } else {
+                        preview.classList.add("d-none");
+                    }
 
 
+
+                });
+            });
+        </script> -->
         
-    });
-});
-</script>
-<script>
-  // Image preview update
-  document.getElementById('editUpload').addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    const preview = document.getElementById('editPreview');
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        preview.src = e.target.result;
-        preview.classList.remove('d-none');
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-</script>
 
 
 
@@ -395,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     cancelButtonText: 'Cancel'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // ✅ Correct way: URL ko string ke andar likhna
+
                         window.location.href = `/delete-category/${id}`;
                     }
                 });

@@ -23959,7 +23959,7 @@ fieldset:disabled .table-list .page,
 /* -------------------------------------------------------------------------- */
 .logo-text {
   font-size: 1.63625rem;
-  color: var(--phoenix-logo-text);
+  color: rgb(9 23 62 / 80%);
   font-weight: 600;
   letter-spacing: -0.04em;
   margin-bottom: 0;
