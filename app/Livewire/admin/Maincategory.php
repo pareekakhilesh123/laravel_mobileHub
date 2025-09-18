@@ -11,18 +11,10 @@ class Maincategory extends Component
     {
         $data = Categories::get();
         return view('livewire.admin.maincategory', ['show' => $data])->layout('layouts.adminheader');
-
-
-
-
-    }
+   }
 
     public function create(Request $request)
     {
-
-
-
-
         $insert = new Categories();
         $insert->label = $request->label;
         $insert->value = $request->value;
@@ -50,7 +42,7 @@ class Maincategory extends Component
         $category = Categories::find($id);
 
         if ($category) {
-            $category->delete(); //  Model ka delete method
+            $category->delete();
         }
 
         return back()->with('success', 'Category deleted successfully!');
@@ -66,7 +58,7 @@ class Maincategory extends Component
         $upd = Categories::where('id', $updid)->first();
 
         $upd->label = $request->label;
-        $upd->value = $request->value;
+        $upd->value = $request->label;
         $upd->priority = $request->priority ?? 10;
         // dd($upd->priority);
 
@@ -79,7 +71,7 @@ class Maincategory extends Component
 
         $upd->save();
 
-        return back();
+        return back()->with('success', 'Category Updated successfully!');;
     }
 
 

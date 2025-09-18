@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subcategories', function (Blueprint $table) {
-            $table->id();
+           $table->id();
+            $table->string('label')->unique();
+            $table->string('value')->unique();
+             $table->string('priority')->default(10);
+            $table->string('category_id');
+            $table->string('image')->nullable();
             $table->timestamps();
+
         });
     }
 

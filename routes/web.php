@@ -50,4 +50,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post('/update_category', [Maincategory::class, 'updcate'])->name('cateupd');
 
 
+    // subcategory routes 
+        Route::post('/admin/sub_category', [Subcategory::class, 'subcreate'])->name('subcreate_category');
 });
