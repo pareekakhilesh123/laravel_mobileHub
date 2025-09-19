@@ -2485,3 +2485,14 @@ background-color: #3498DB;
     max-height: 300px;
   }
 }
+/* Chrome, Safari, Edge ke liye */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox ke liye */
+input[type=number] {
+  -moz-appearance: textfield;
+}

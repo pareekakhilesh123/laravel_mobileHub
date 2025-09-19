@@ -66,12 +66,12 @@
                                 <!-- Priority -->
                                 <div class="mb-2">
                                     <label for="priority" class="form-label fw-bold">Priority</label>
-                                    <select name="priority" id="priority" class="form-select" required>
+                                    <select name="priority" id="priority" class="form-select" >
                                         <option value="" selected disabled>-- Select Priority --</option>
                                         @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                     </select>
-                                    <div class="invalid-feedback">Please select a priority.</div>
+                                 
                                 </div>
                             </div>
 

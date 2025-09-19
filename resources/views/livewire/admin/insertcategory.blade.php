@@ -15,14 +15,17 @@
 
         <!-- Product Category -->
         <div class="mb-3">
-          <label for="productCategory" class="form-label">Product Category</label>
-          <select class="form-select" id="productCategory" name="product_category" required>
-            <option selected disabled>-- Select Category --</option>
-            <option value="Mobile">Mobile</option>
-            <option value="Laptop">Laptop</option>
-            <option value="Accessories">Accessories</option>
-          </select>
+         <label for="parent_id" class="form-label">Parent Category</label>
+                                    <select name="cate_id" id="parent_id" class="form-select" required>
+                                        <option value="" selected disabled>-- Select Category --</option>
+                                        @foreach ($cate as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->label }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">Please select a parent category.</div>
         </div>
+
+      
 
         <!-- Product Title -->
         <div class="mb-3">

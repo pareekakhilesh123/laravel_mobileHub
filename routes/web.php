@@ -15,6 +15,7 @@ use App\Livewire\admin\Dashboard;
 use App\Livewire\admin\Maincategory;
 use App\Livewire\admin\Subcategory;
 use App\Livewire\admin\Insertcategory;
+use App\Livewire\admin\Enquiry;
 
 
 
@@ -27,7 +28,8 @@ Route::get('/products', products::class)->name('products');
 Route::get('/blogs', Blogs::class)->name('blogs');
 Route::get('/productdetails', Productdetails::class)->name('Productdetails');
 Route::get('/industries', Industries::class)->name('Industries');
-
+// static contact page data post 
+  Route::post('/contact-us', [contact::class, 'contactpost'])->name('postcontact');
 
 
 
@@ -56,4 +58,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::post('/admin/sub_category', [Subcategory::class, 'subcreate'])->name('subcreate_category');
         Route::get('delete-subcategory/{id}', [Subcategory::class, 'detelesubcate']);
         Route::post('/update_category', [Subcategory::class, 'updsubcate'])->name('subcateupd');
+
+
+        // enquiry routes ye route header par click kare par open ho raha h 
+        Route::get('/admin/enquiry', Enquiry::class)->name('Enquiry');
+        Route::get('delete-contact/{id}', [Enquiry::class, 'detelecontact']);
+      Route::get('/update_enquiry/{id}/{status}', [Enquiry::class, 'updatecontactstatus'])->name('updatestatus');
 });
