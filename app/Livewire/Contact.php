@@ -21,7 +21,7 @@ class Contact extends Component
          $insert->phone = $request->phone;
         $insert->message = $request->message;
         $insert->save();
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+       return redirect()->route('thanks');
 
     }
 }

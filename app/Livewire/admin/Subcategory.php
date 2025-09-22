@@ -2,7 +2,7 @@
 
 namespace App\Livewire\admin;
 use App\Models\Categories;
- use App\Models\Subcategory as subcate;
+use App\Models\Subcategory as subcate;
 use Illuminate\Http\Request;
 
 use Livewire\Component;
@@ -79,6 +79,12 @@ class Subcategory extends Component
 
         return back()->with('success', 'sub Category Updated successfully!');;
     }
+
+    public function getSubcategories($id)
+{
+    $subcategories = subcate::where('category_id', $id)->get();
+    return response()->json($subcategories);
+}
 
 
 

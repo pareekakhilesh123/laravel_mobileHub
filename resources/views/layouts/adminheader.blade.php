@@ -165,15 +165,51 @@
                                 </div>
 
                                 
+    <li class="nav-item">
+    <p class="navbar-vertical-label">Products</p>
+    <hr class="navbar-vertical-line" />
+
     <div class="nav-item-wrapper">
-    <a class="nav-link label-1 {{ request()->routeIs('Insertcategory') ? 'active' : '' }}"
-    href="{{ route('Insertcategory') }}">
-        <div class="d-flex align-items-center">
-        <span class="nav-link-icon"><span data-feather="package"></span></span>
-        <span class="nav-link-text">Insert Product</span>
+        <a class="nav-link dropdown-indicator label-1" href="#productsMenu" role="button"
+            data-bs-toggle="collapse" aria-expanded="false" aria-controls="productsMenu">
+            <div class="d-flex align-items-center">
+                <div class="dropdown-indicator-icon-wrapper">
+                    <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                </div>
+                <span class="nav-link-icon"><span data-feather="package"></span></span>
+                <span class="nav-link-text">Product</span>
+            </div>
+        </a>
+
+        <div class="parent-wrapper label-1">
+            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
+                id="productsMenu">
+
+                <!-- Add Product -->
+                <li class="nav-item">
+                    <a class="nav-link label-1 {{ request()->routeIs('Insertproduct') ? 'active' : '' }}"
+                        href="{{ route('Insertproduct') }}">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Add Product</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Product List -->
+                <li class="nav-item">
+                    <a class="nav-link label-1 {{ request()->routeIs('Productlist') ? 'active' : '' }}"
+                        href="#">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Product List</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
         </div>
-    </a>
     </div>
+</li>
+
 
     <div class="nav-item-wrapper">
       <a class="nav-link label-1 {{ request()->routeIs('Enquiry') ? 'active' : '' }}"
