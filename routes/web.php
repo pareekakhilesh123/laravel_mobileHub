@@ -17,6 +17,7 @@ use App\Livewire\admin\Maincategory;
 use App\Livewire\admin\Subcategory;
 use App\Livewire\admin\Insertcategory;
 use App\Livewire\admin\Enquiry;
+use App\Livewire\admin\Productslist;
 
 
 
@@ -44,7 +45,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/admin', Dashboard::class)->name('Dashboard');
     Route::get('/admin/main_category', Maincategory::class)->name('Maincategory');
     Route::get('/admin/sub_category', Subcategory::class)->name('Subcategory');
-    Route::get('/admin/Insertproduct', Insertcategory::class)->name('Insertproduct');
 
     Route::post('/admin/main_category', [Maincategory::class, 'create'])->name('master');
     // Route::get('/insert_category',[Insertcategory::class,'create'])->name('touch');
@@ -63,8 +63,19 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::get('/get-subcategories/{id}', [Subcategory::class, 'getSubcategories']);
 
 
+        // Add Products ROutes
+            Route::get('/admin/Insertproduct', Insertcategory::class)->name('Insertproduct');
+             Route::post('/admin/Insertproduct', [Insertcategory::class, 'addproduct'])->name('Insertproduct');
+ 
+
         // enquiry routes ye route header par click kare par open ho raha h 
         Route::get('/admin/enquiry', Enquiry::class)->name('Enquiry');
         Route::get('delete-contact/{id}', [Enquiry::class, 'detelecontact']);
       Route::get('/update_enquiry/{id}/{status}', [Enquiry::class, 'updatecontactstatus'])->name('updatestatus');
-});
+
+      // Productlist
+   Route::get('/admin/products', Productslist::class)->name('Productslist');
+    Route::get('delete-product/{id}', [Productslist::class, 'deleteProduct']);
+ 
+
+    });

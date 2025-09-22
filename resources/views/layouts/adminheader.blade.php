@@ -197,8 +197,8 @@
 
                 <!-- Product List -->
                 <li class="nav-item">
-                    <a class="nav-link label-1 {{ request()->routeIs('Productlist') ? 'active' : '' }}"
-                        href="#">
+                    <a class="nav-link label-1 {{ request()->routeIs('Productslist') ? 'active' : '' }}"
+                        href="{{ route('Productslist') }}">
                         <div class="d-flex align-items-center">
                             <span class="nav-link-text">Product List</span>
                         </div>

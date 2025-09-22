@@ -31,7 +31,7 @@
                     <h4 class="mb-3">Add Category</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('master') }}" id="itemForm" enctype="multipart/form-data"
+                    <form method="post" action="{{ route('Addproducts') }}" id="itemForm" enctype="multipart/form-data"
                         class="needs-validation" novalidate>
                         @csrf
                         <div class="row g-3">

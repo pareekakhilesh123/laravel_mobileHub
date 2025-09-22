@@ -24,7 +24,7 @@
     </head>
 
     <body class="bg-light">
-        <div class="container">
+            <div class="container">
             <!-- Form Section -->
             <div class="card mt-5 shadow-lg border-0">
                 <div class="card-header" style="padding: 20px 20px 10px 20px;">
@@ -66,12 +66,12 @@
                                 <!-- Priority -->
                                 <div class="mb-2">
                                     <label for="priority" class="form-label fw-bold">Priority</label>
-                                    <select name="priority" id="priority" class="form-select" >
+                                    <select name="priority" id="priority" class="form-select">
                                         <option value="" selected disabled>-- Select Priority --</option>
                                         @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                     </select>
-                                 
+
                                 </div>
                             </div>
 
@@ -115,11 +115,11 @@
                         </div>
 
 
-</div>
+                </div>
             </div>
-                    </form>
-                    
-                    <div class="card mt-5 shadow-lg border-0">
+            </form>
+
+            <div class="card mt-5 shadow-lg border-0">
                 <div class="card-header" style="padding: 20px 20px 10px 20px;">
                     <h4 class="mb-3">Sub category List</h4>
                 </div>
@@ -129,7 +129,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Sub Category Name </th>
-                                 <th>Category Name</th>
+                                <th>Category Name</th>
                                 <th>Priority</th>
                                 <th>Image</th>
                                 <th style="width: 200px;">Action</th>
@@ -138,131 +138,134 @@
                         <tbody>
                             @php $counter = 1; @endphp
                             @foreach ($subget as $d)
-                                <tr>
-                                    <td class="text-center">{{ $counter++ }}</td>
-                                    <td>{{ $d->label }}</td>
-                                     <td>
+                            <tr>
+                                <td class="text-center">{{ $counter++ }}</td>
+                                <td>{{ $d->label }}</td>
+                                <td>
 
-                                        @foreach($cate as $c)
-                                        @if($c->id == $d->category_id)
-                                        {{ $c->label }}
-                                        @endif
+                                    @foreach($cate as $c)
+                                    @if($c->id == $d->category_id)
+                                    {{ $c->label }}
+                                    @endif
 
-                                        @endforeach
-                                    
-                                    </td>
-                                    <td>{{ $d->priority }}</td>
-                                    <td>
-                                        @if($d->image)
-                                            <img src="{{ asset('allimage/' . $d->image) }}"
-                                                class="img-thumbnail rounded shadow-sm" style="height:40px; object-fit:cover;">
-                                        @else
-                                            <span class="text-muted">No Image</span>
-                                        @endif
+                                    @endforeach
 
-                                    <td>
-                                        <!-- Edit Button -->
-                                        <!-- Edit Button -->
-                                        <a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
-                                            data-bs-target="#editModal<?php    echo $d->id ?>" data-id="{{ $d->id }}" data-label="{{ $d->label }}"
-                                            data-priority="{{ $d->priority }}" data-value="{{ $d->value }}"
-                                            data-image="{{ $d->image }}" title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                            <span class="d-none d-md-inline"> Edit</span>
-                                        </a>
+                                </td>
+                                <td>{{ $d->priority }}</td>
+                                <td>
+                                    @if($d->image)
+                                    <img src="{{ asset('allimage/' . $d->image) }}"
+                                        class="img-thumbnail rounded shadow-sm" style="height:40px; object-fit:cover;">
+                                    @else
+                                    <span class="text-muted">No Image</span>
+                                    @endif
+
+                                <td>
+                                    <!-- Edit Button -->
+                                    <!-- Edit Button -->
+                                    <a href="#" class="btn btn-sm btn-warning me-1" data-bs-toggle="modal"
+                                        data-bs-target="#editModal<?php    echo $d->id ?>" data-id="{{ $d->id }}"
+                                        data-label="{{ $d->label }}" data-priority="{{ $d->priority }}"
+                                        data-value="{{ $d->value }}" data-image="{{ $d->image }}" title="Edit">
+                                        <i class="bi bi-pencil-square"></i>
+                                        <span class="d-none d-md-inline"> Edit</span>
+                                    </a>
 
 
-                                        <!-- Delete Button -->
+                                    <!-- Delete Button -->
 
-                                        <button type="button" onclick="deleteSubCategory(<?php    echo $d->id ?>)"
-                                            class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Delete">
-                                            <i class="bi bi-trash"></i>
-                                            <span class="d-none d-md-inline"> Delete</span>
-                                        </button>
-                                    </td>
+                                    <button type="button" onclick="deleteSubCategory(<?php    echo $d->id ?>)"
+                                        class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Delete">
+                                        <i class="bi bi-trash"></i>
+                                        <span class="d-none d-md-inline"> Delete</span>
+                                    </button>
+                                </td>
 
-                                    </td>
-                                </tr>
+                                </td>
+                            </tr>
 
-                                <!-- Edit Modal -->
-                                <div class="modal fade" id="editModal<?php    echo $d->id ?>" tabindex="-1"
-                                    aria-labelledby="editModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
+                            <!-- Edit Modal -->
+                            <div class="modal fade" id="editModal<?php    echo $d->id ?>" tabindex="-1"
+                                aria-labelledby="editModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
 
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <form method="post" action="{{ route('subcateupd') }}"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
+
+                                            <div class="modal-body">
+                                                <div class="row g-3">
+                                                    <div class="col-6">
+                                                        <label class="form-label"> Category Name </label>
+                                                        <select name="cate_id" id="parent_id" class="form-select"
+                                                            required>
+                                                            <option value="" selected disabled>-- Select Category --
+                                                            </option>
+                                                            @foreach ($cate as $cat)
+                                                            <option value="{{ $cat->id }}"
+                                                                {{ $d->category_id == $cat->id ? 'selected' : '' }}>
+                                                                {{ $cat->label }}
+                                                            </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <div class="invalid-feedback">Please select a parent category.
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="form-label">Sub Category Name </label>
+                                                        <input type="text" name="label" id="editLabel"
+                                                            class="form-control" value="{{ $d->label }}" required>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <label class="form-label">Priority</label>
+                                                        <select name="priority" id="editPriority" class="form-select">
+                                                            <option value="" disabled>-- Select Priority --</option>
+                                                            @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}"
+                                                                {{ $d->priority == $i ? 'selected' : '' }}>{{ $i }}
+                                                                </option>
+                                                                @endfor
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-6 d-none">
+                                                        <label class="form-label">Value</label>
+                                                        <input type="text" name="value" id="editValue"
+                                                            value="{{ $d->value }}" class="form-control" required>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <label class="form-label">Image</label>
+                                                        <input type="file" name="upload" class="form-control editUpload"
+                                                            data-preview="editPreview{{ $d->id }}">
+
+                                                        <!-- Old Image Preview -->
+                                                        <img id="editPreview{{ $d->id }}"
+                                                            src="{{ $d->image ? asset('allimage/'.$d->image) : '' }}"
+                                                            class="mt-2 rounded {{ $d->image ? '' : 'd-none' }}"
+                                                            style="max-width:100px;">
+                                                    </div>
+
+                                                </div>
                                             </div>
 
-                                            <form method="post" 
-                                         action="{{ route('subcateupd') }}"
-                                              enctype="multipart/form-data">
-                                                @csrf
-                                                <input type="hidden" name="updid" id="editId" value="{{ $d->id }}">
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Update</button>
+                                            </div>
+                                        </form>
 
-                                                <div class="modal-body">
-                                                    <div class="row g-3">
-                                                        <div class="col-6">
-                                                            <label class="form-label"> Category Name </label>
-                                                            <select name="cate_id" id="parent_id" class="form-select" required>
-    <option value="" selected disabled>-- Select Category --</option>
-    @foreach ($cate as $cat)
-        <option value="{{ $cat->id }}" {{ $d->category_id == $cat->id ? 'selected' : '' }}>
-            {{ $cat->label }}
-        </option>
-    @endforeach
-</select>
-                                    <div class="invalid-feedback">Please select a parent category.</div>
-                                                        </div>
-                                                         <div class="col-6">
-                                                            <label class="form-label">Sub Category Name </label>
-                                                            <input type="text" name="label" id="editLabel"
-                                                                class="form-control" value="{{ $d->label }}" required>
-                                                        </div>
-
-                                                        <div class="col-6">
-                                                            <label class="form-label">Priority</label>
-                                                            <select name="priority" id="editPriority" class="form-select">
-                                                                <option value="" disabled>-- Select Priority --</option>
-                                                                @for ($i = 1; $i <= 10; $i++)
-                                                                    <option value="{{ $i }}" {{ $d->priority == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                                                @endfor
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-6 d-none">
-                                                            <label class="form-label">Value</label>
-                                                            <input type="text" name="value" id="editValue" value="{{ $d->value }}"
-                                                                class="form-control" required>
-                                                        </div>
-
-                                                        <div class="col-6">
-      <label class="form-label">Image</label>
-    <input type="file" name="upload"
-           class="form-control editUpload"
-           data-preview="editPreview{{ $d->id }}">
-
-    <!-- Old Image Preview -->
-    <img id="editPreview{{ $d->id }}"
-         src="{{ $d->image ? asset('allimage/'.$d->image) : '' }}"
-         class="mt-2 rounded {{ $d->image ? '' : 'd-none' }}"
-         style="max-width:100px;">
-</div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-success">Update</button>
-                                                </div>
-                                            </form>
-
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </tbody>
                     </table>
@@ -282,109 +285,109 @@
         </div>
 
 
-                </div>
-            </div>
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
 
-            <script>
-            // Upload click handler
-            document.getElementById("dropZone").addEventListener("click", function() {
-                document.getElementById("image").click();
-            });
+<script>
+// Upload click handler
+document.getElementById("dropZone").addEventListener("click", function() {
+    document.getElementById("image").click();
+});
 
-            // Image preview handler
-            document.getElementById("image").addEventListener("change", function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById("preview").src = e.target.result;
-                        document.getElementById("preview").classList.remove("d-none");
-                        document.getElementById("placeholderText").classList.add("d-none");
-                        document.getElementById("closePreview").classList.remove("d-none");
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
+// Image preview handler
+document.getElementById("image").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("preview").src = e.target.result;
+            document.getElementById("preview").classList.remove("d-none");
+            document.getElementById("placeholderText").classList.add("d-none");
+            document.getElementById("closePreview").classList.remove("d-none");
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
-            // Remove image preview
-            document.getElementById("closePreview").addEventListener("click", function() {
-                document.getElementById("image").value = "";
-                document.getElementById("preview").src = "";
-                document.getElementById("preview").classList.add("d-none");
-                document.getElementById("placeholderText").classList.remove("d-none");
-                document.getElementById("closePreview").classList.add("d-none");
-            });
-            </script>
-
-
-            <script>
-            $(document).ready(function() {
-                $('#touchTable').DataTable({
-                    paging: true,
-                    searching: true,
-                    ordering: true,
-                    lengthMenu: [10, 25, 50],
-                    language: {
-                        search: "Search",
-                        searchPlaceholder: "Search records..."
-                    }
-                });
-            });
+// Remove image preview
+document.getElementById("closePreview").addEventListener("click", function() {
+    document.getElementById("image").value = "";
+    document.getElementById("preview").src = "";
+    document.getElementById("preview").classList.add("d-none");
+    document.getElementById("placeholderText").classList.remove("d-none");
+    document.getElementById("closePreview").classList.add("d-none");
+});
+</script>
 
 
-            function deleteSubcategory(id) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "This Subcategory will be permanently deleted!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'Cancel'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = `/delete-subcategory/${id}`;
-                    }
-                });
-            }
-            </script>
-
-            <!-- Auto-fill VALUE from Label -->
-            <script>
-            const labelInput = document.getElementById("label");
-            const valueInput = document.getElementById("value");
-
-            labelInput.addEventListener("input", () => {
-                valueInput.value = labelInput.value.trim().toLowerCase().replace(/\s+/g, "_");
-            });
-            </script>
-
-               <script>
-            function deleteSubCategory(id) {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "This Sub Category item will be permanently deleted!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'Cancel'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-
-                        window.location.href = `/delete-subcategory/${id}`;
-                    }
-                });
-            }
-        </script>
+<script>
+$(document).ready(function() {
+    $('#touchTable').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true,
+        lengthMenu: [10, 25, 50],
+        language: {
+            search: "Search",
+            searchPlaceholder: "Search records..."
+        }
+    });
+});
 
 
-    </body>
+function deleteSubcategory(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This Subcategory will be permanently deleted!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = `/delete-subcategory/${id}`;
+        }
+    });
+}
+</script>
+
+<!-- Auto-fill VALUE from Label -->
+<script>
+const labelInput = document.getElementById("label");
+const valueInput = document.getElementById("value");
+
+labelInput.addEventListener("input", () => {
+    valueInput.value = labelInput.value.trim().toLowerCase().replace(/\s+/g, "_");
+});
+</script>
+
+<script>
+function deleteSubCategory(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This Sub Category item will be permanently deleted!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            window.location.href = `/delete-subcategory/${id}`;
+        }
+    });
+}
+</script>
+
+
+</body>
 </div>
