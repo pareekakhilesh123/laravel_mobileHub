@@ -70,9 +70,6 @@
                                 </select>
                                 <div class="invalid-feedback">Please select a priority.</div>
                             </div>
-
-                            <!-- Product Name -->
-
                         </div>
                     </div>
 

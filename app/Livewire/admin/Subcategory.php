@@ -62,7 +62,6 @@ class Subcategory extends Component
         // dd($updid);
 
         $upd = subcate::where('id', $updid)->first();
-
         $upd->label = $request->label;
         $upd->value = $request->label;
         $upd->priority = $request->priority ?? 10;

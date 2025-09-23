@@ -81,8 +81,8 @@
 
                             <!-- Actions -->
                             <td>
-                                <a href="#" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <a  href="{{ url('admin/product/preview/'. $product->id ) }}"  class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                                <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square "  ></i></a>
 
                                 <button type="button" onclick="deleteProduct(<?php echo $product->id ?>)"
                                     class="btn btn-danger btn-sm">

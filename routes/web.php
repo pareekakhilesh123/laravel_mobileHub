@@ -18,6 +18,7 @@ use App\Livewire\admin\Subcategory;
 use App\Livewire\admin\Insertcategory;
 use App\Livewire\admin\Enquiry;
 use App\Livewire\admin\Productslist;
+use App\Livewire\admin\Productpreview;
 
 
 
@@ -76,6 +77,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
       // Productlist
    Route::get('/admin/products', Productslist::class)->name('Productslist');
     Route::get('delete-product/{id}', [Productslist::class, 'deleteProduct']);
- 
 
+    // productprevieew
+    Route::get('/admin/Productpreview', Productpreview::class)->name('ProductPreview');
+    
+Route::get('/admin/product/preview/{id}', Productpreview::class)->name('adminProductPreview');
     });
