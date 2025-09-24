@@ -26,6 +26,7 @@
         <link rel="manifest" href="{{asset('adassets/img/favicons/favicon121.jpeg')}}">
         <meta name="msapplication-TileImage" content="{{asset('adassets/img/favicons/favicon12.jpeg')}}">
         <meta name="theme-color" content="#ffffff">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="{{asset('adassets/vendors/simplebar/simplebar.min.js')}}"></script>
         <script src="{{asset('adassets/js/config.js')}}"></script>
         <script src="{{asset('adassets/js/pages/advance-ajax-table.js')}}"></script>
@@ -37,6 +38,7 @@
         <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
         <!-- ===============================================-->
@@ -54,19 +56,19 @@
         <link href="{{asset('adassets/css/user.min.css')}}" type="text/css" rel="stylesheet" id="user-style-default">
 
         <script>
-            var phoenixIsRTL = window.config.config.phoenixIsRTL;
-            if (phoenixIsRTL) {
-                var linkDefault = document.getElementById('style-default');
-                var userLinkDefault = document.getElementById('user-style-default');
-                linkDefault.setAttribute('disabled', true);
-                userLinkDefault.setAttribute('disabled', true);
-                document.querySelector('html').setAttribute('dir', 'rtl');
-            } else {
-                var linkRTL = document.getElementById('style-rtl');
-                var userLinkRTL = document.getElementById('user-style-rtl');
-                linkRTL.setAttribute('disabled', true);
-                userLinkRTL.setAttribute('disabled', true);
-            }
+        var phoenixIsRTL = window.config.config.phoenixIsRTL;
+        if (phoenixIsRTL) {
+            var linkDefault = document.getElementById('style-default');
+            var userLinkDefault = document.getElementById('user-style-default');
+            linkDefault.setAttribute('disabled', true);
+            userLinkDefault.setAttribute('disabled', true);
+            document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+            var linkRTL = document.getElementById('style-rtl');
+            var userLinkRTL = document.getElementById('user-style-rtl');
+            linkRTL.setAttribute('disabled', true);
+            userLinkRTL.setAttribute('disabled', true);
+        }
         </script>
         <link href="{{asset('adassets/vendors/leaflet/leaflet.css')}}" rel="stylesheet">
         <link href="{{asset('adassets/vendors/leaflet.markercluster/MarkerCluster.css')}}" rel="stylesheet">
@@ -85,17 +87,17 @@
                         <ul class="navbar-nav flex-column" id="navbarVerticalNav">
                             <li class="nav-item">
 
-    <div class="nav-item-wrapper">
-    <a class="nav-link dropdown-indicator label-1" href="{{route('Dashboard')}}">
-        <div class="d-flex align-items-center">
-        <div><span style="padding-left:10px;"></span></div>
-        <span class="nav-link-icon">
-            <span data-feather="pie-chart"></span>
-        </span>
-        <span class="nav-link-text">Dashboard</span>
-        </div>
-    </a>
-    </div>
+                                <div class="nav-item-wrapper">
+                                    <a class="nav-link dropdown-indicator label-1" href="{{route('Dashboard')}}">
+                                        <div class="d-flex align-items-center">
+                                            <div><span style="padding-left:10px;"></span></div>
+                                            <span class="nav-link-icon">
+                                                <span data-feather="pie-chart"></span>
+                                            </span>
+                                            <span class="nav-link-text">Dashboard</span>
+                                        </div>
+                                    </a>
+                                </div>
 
                             </li>
 
@@ -134,8 +136,9 @@
                                 <hr class="navbar-vertical-line" />
 
                                 <div class="nav-item-wrapper">
-                                    <a class="nav-link dropdown-indicator label-1" href="#appointmentsMenu" role="button"
-                                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="appointmentsMenu">
+                                    <a class="nav-link dropdown-indicator label-1" href="#appointmentsMenu"
+                                        role="button" data-bs-toggle="collapse" aria-expanded="false"
+                                        aria-controls="appointmentsMenu">
                                         <div class="d-flex align-items-center">
                                             <div class="dropdown-indicator-icon-wrapper"><span
                                                     class="fas fa-caret-right dropdown-indicator-icon"></span></div>
@@ -146,92 +149,95 @@
                                     <div class="parent-wrapper label-1">
                                         <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
                                             id="appointmentsMenu">
-                                            <li class="nav-item"> 
+                                            <li class="nav-item">
                                                 <a class="nav-link label-1 {{ request()->routeIs('Maincategory') ? 'active' : '' }}"
-    href="{{ route('Maincategory') }}">
-                                            
-                                                    <div class="d-flex align-items-center"><span class="nav-link-text">Main
+                                                    href="{{ route('Maincategory') }}">
+
+                                                    <div class="d-flex align-items-center"><span
+                                                            class="nav-link-text">Main
                                                             Category</span></div>
-                                                </a></li>
+                                                </a>
+                                            </li>
                                             <li class="nav-item">
                                                 <a class="nav-link label-1 {{ request()->routeIs('Subcategory') ? 'active' : '' }}"
-    href="{{ route('Subcategory') }}">
+                                                    href="{{ route('Subcategory') }}">
                                                     <div class="d-flex align-items-center"><span
                                                             class="nav-link-text">Sub-Category</span></div>
-                                                </a></li>
+                                                </a>
+                                            </li>
 
                                         </ul>
                                     </div>
                                 </div>
 
-                                
-    <li class="nav-item">
-    <p class="navbar-vertical-label">Products</p>
-    <hr class="navbar-vertical-line" />
 
-    <div class="nav-item-wrapper">
-        <a class="nav-link dropdown-indicator label-1" href="#productsMenu" role="button"
-            data-bs-toggle="collapse" aria-expanded="false" aria-controls="productsMenu">
-            <div class="d-flex align-items-center">
-                <div class="dropdown-indicator-icon-wrapper">
-                    <span class="fas fa-caret-right dropdown-indicator-icon"></span>
-                </div>
-                <span class="nav-link-icon"><span data-feather="package"></span></span>
-                <span class="nav-link-text">Product</span>
-            </div>
-        </a>
+                            <li class="nav-item">
+                                <p class="navbar-vertical-label">Products</p>
+                                <hr class="navbar-vertical-line" />
 
-        <div class="parent-wrapper label-1">
-            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
-                id="productsMenu">
+                                <div class="nav-item-wrapper">
+                                    <a class="nav-link dropdown-indicator label-1" href="#productsMenu" role="button"
+                                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="productsMenu">
+                                        <div class="d-flex align-items-center">
+                                            <div class="dropdown-indicator-icon-wrapper">
+                                                <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                                            </div>
+                                            <span class="nav-link-icon"><span data-feather="package"></span></span>
+                                            <span class="nav-link-text">Product</span>
+                                        </div>
+                                    </a>
 
-                <!-- Add Product -->
-                <li class="nav-item">
-                    <a class="nav-link label-1 {{ request()->routeIs('Insertproduct') ? 'active' : '' }}"
-                        href="{{ route('Insertproduct') }}">
-                        <div class="d-flex align-items-center">
-                            <span class="nav-link-text">Add Product</span>
-                        </div>
-                    </a>
-                </li>
+                                    <div class="parent-wrapper label-1">
+                                        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
+                                            id="productsMenu">
 
-                <!-- Product List -->
-                <li class="nav-item">
-                    <a class="nav-link label-1 {{ request()->routeIs('Productslist') ? 'active' : '' }}"
-                        href="{{ route('Productslist') }}">
-                        <div class="d-flex align-items-center">
-                            <span class="nav-link-text">Product List</span>
-                        </div>
-                    </a>
-                </li>
+                                            <!-- Add Product -->
+                                            <li class="nav-item">
+                                                <a class="nav-link label-1 {{ request()->routeIs('Insertproduct') ? 'active' : '' }}"
+                                                    href="{{ route('Insertproduct') }}">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="nav-link-text">Add Product</span>
+                                                    </div>
+                                                </a>
+                                            </li>
 
-            </ul>
-        </div>
-    </div>
-</li>
+                                            <!-- Product List -->
+                                            <li class="nav-item">
+                                                <a class="nav-link label-1 {{ request()->routeIs('Productslist') ? 'active' : '' }}"
+                                                    href="{{ route('Productslist') }}">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="nav-link-text">Product List</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
 
 
-    <div class="nav-item-wrapper">
-      <a class="nav-link label-1 {{ request()->routeIs('Enquiry') ? 'active' : '' }}"
-         href="{{ route('Enquiry') }}">
-        <div class="d-flex align-items-center">
-          <span class="nav-link-icon"><span data-feather="message-square"></span></span>
-          <span class="nav-link-text">Enquiry</span>
-        </div>
-      </a>
-    </div>
+                            <div class="nav-item-wrapper">
+                                <a class="nav-link label-1 {{ request()->routeIs('Enquiry') ? 'active' : '' }}"
+                                    href="{{ route('Enquiry') }}">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-icon"><span data-feather="message-square"></span></span>
+                                        <span class="nav-link-text">Enquiry</span>
+                                    </div>
+                                </a>
+                            </div>
 
 
                         </ul>
                     </div>
                 </div>
-            
+
             </nav>
             <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
                 <div class="collapse navbar-collapse justify-content-between">
                     <div class="navbar-logo">
-                        <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
+                        <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
                             aria-controls="navbarVerticalCollapse" aria-expanded="false"
                             aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                                     class="toggle-line"></span></span></button>
@@ -247,8 +253,8 @@
                     <div class="search-box navbar-top-search-box d-none d-lg-block" data-list='{"valueNames":["title"]}'
                         style="width:25rem;">
                         <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input
-                                class="form-control search-input fuzzy-search rounded-pill form-control-sm" type="search"
-                                placeholder="Search..." aria-label="Search" />
+                                class="form-control search-input fuzzy-search rounded-pill form-control-sm"
+                                type="search" placeholder="Search..." aria-label="Search" />
                             <span class="fas fa-search search-box-icon"></span>
                         </form>
                         <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none"
@@ -257,13 +263,13 @@
                     </div>
                     <ul class="navbar-nav navbar-nav-icons flex-row">
                         <li class="nav-item">
-                        
+
                         </li>
                         <li class="nav-item d-lg-none"><a class="nav-link" href="#" data-bs-toggle="modal"
-                                data-bs-target="#searchBoxModal"><span class="d-block" style="height:20px;width:20px;"><span
-                                        data-feather="search"
+                                data-bs-target="#searchBoxModal"><span class="d-block"
+                                    style="height:20px;width:20px;"><span data-feather="search"
                                         style="height:19px;width:19px;margin-bottom: 2px;"></span></span></a></li>
-                    
+
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link" id="navbarDropdownNindeDots" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"
@@ -387,11 +393,11 @@
                             </div>
                         </li> -->
                         <li class="nav-item dropdown"><a class="nav-link lh-1 pe-0" id="navbarDropdownUser" href="#!"
-                                role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
-                                aria-expanded="false">
+                                role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                aria-haspopup="true" aria-expanded="false">
                                 <div class="avatar avatar-l ">
-                                    <img class="rounded-circle " src=
-                                    {{asset('adassets/img/team/40x40/57.webp')}}  alt="" />
+                                    <img class="rounded-circle " src={{asset('adassets/img/team/40x40/57.webp')}}
+                                        alt="" />
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border"
@@ -400,12 +406,14 @@
                                     <div class="card-body p-0">
                                         <div class="text-center pt-4 pb-3">
                                             <div class="avatar avatar-xl ">
-                                                <img class="rounded-circle " src= {{asset('adassets/img/team/72x72/57.webp')}} alt="" />
+                                                <img class="rounded-circle "
+                                                    src={{asset('adassets/img/team/72x72/57.webp')}} alt="" />
                                             </div>
                                             <h6 class="mt-2 text-body-emphasis">Jerry Seinfield</h6>
                                         </div>
                                         <div class="mb-3 mx-3"><input class="form-control form-control-sm"
-                                                id="statusUpdateInput" type="text" placeholder="Update your status" /></div>
+                                                id="statusUpdateInput" type="text" placeholder="Update your status" />
+                                        </div>
                                     </div>
                                     <div class="overflow-auto scrollbar" style="height: 10rem;">
                                         <ul class="nav d-flex flex-column mb-2 pb-1">
@@ -413,10 +421,12 @@
                                                         class="me-2 text-body align-bottom"
                                                         data-feather="user"></span><span>Profile</span></a></li>
                                             <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"><span
-                                                        class="me-2 text-body align-bottom" data-feather="pie-chart"></span>
+                                                        class="me-2 text-body align-bottom"
+                                                        data-feather="pie-chart"></span>
                                                     Dashboard</a></li>
                                             <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"> <span
-                                                        class="me-2 text-body align-bottom" data-feather="lock"></span>Posts
+                                                        class="me-2 text-body align-bottom"
+                                                        data-feather="lock"></span>Posts
                                                     &amp; Activity</a></li>
                                             <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"> <span
                                                         class="me-2 text-body align-bottom"
@@ -437,7 +447,8 @@
                                         </ul>
                                         <hr />
                                         <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100"
-                                                href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a>
+                                                href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign
+                                                out</a>
                                         </div>
                                         <div class="my-2 text-center fw-bold fs-10 text-body-quaternary"><a
                                                 class="text-body-quaternary me-1" href="#!">Privacy policy</a>&bull;<a
@@ -456,103 +467,103 @@
 
 
             <script>
-                var navbarTopShape = window.config.config.phoenixNavbarTopShape;
-                var navbarPosition = window.config.config.phoenixNavbarPosition;
-                var body = document.querySelector('body');
-                var navbarDefault = document.querySelector('#navbarDefault');
-                var navbarTop = document.querySelector('#navbarTop');
-                var topNavSlim = document.querySelector('#topNavSlim');
-                var navbarTopSlim = document.querySelector('#navbarTopSlim');
-                var navbarCombo = document.querySelector('#navbarCombo');
-                var navbarComboSlim = document.querySelector('#navbarComboSlim');
-                var dualNav = document.querySelector('#dualNav');
+            var navbarTopShape = window.config.config.phoenixNavbarTopShape;
+            var navbarPosition = window.config.config.phoenixNavbarPosition;
+            var body = document.querySelector('body');
+            var navbarDefault = document.querySelector('#navbarDefault');
+            var navbarTop = document.querySelector('#navbarTop');
+            var topNavSlim = document.querySelector('#topNavSlim');
+            var navbarTopSlim = document.querySelector('#navbarTopSlim');
+            var navbarCombo = document.querySelector('#navbarCombo');
+            var navbarComboSlim = document.querySelector('#navbarComboSlim');
+            var dualNav = document.querySelector('#dualNav');
 
-                var documentElement = document.documentElement;
-                var navbarVertical = document.querySelector('.navbar-vertical');
+            var documentElement = document.documentElement;
+            var navbarVertical = document.querySelector('.navbar-vertical');
 
-                if (navbarPosition === 'dual-nav') {
-                    topNavSlim?.remove();
-                    navbarTop?.remove();
-                    navbarTopSlim?.remove();
-                    navbarCombo?.remove();
-                    navbarComboSlim?.remove();
-                    navbarDefault?.remove();
-                    navbarVertical?.remove();
-                    dualNav.removeAttribute('style');
-                    document.documentElement.setAttribute('data-navigation-type', 'dual');
+            if (navbarPosition === 'dual-nav') {
+                topNavSlim?.remove();
+                navbarTop?.remove();
+                navbarTopSlim?.remove();
+                navbarCombo?.remove();
+                navbarComboSlim?.remove();
+                navbarDefault?.remove();
+                navbarVertical?.remove();
+                dualNav.removeAttribute('style');
+                document.documentElement.setAttribute('data-navigation-type', 'dual');
 
-                } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
-                    navbarDefault?.remove();
-                    navbarTop?.remove();
-                    navbarTopSlim?.remove();
-                    navbarCombo?.remove();
-                    navbarComboSlim?.remove();
-                    topNavSlim.style.display = 'block';
-                    navbarVertical.style.display = 'inline-block';
-                    document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+            } else if (navbarTopShape === 'slim' && navbarPosition === 'vertical') {
+                navbarDefault?.remove();
+                navbarTop?.remove();
+                navbarTopSlim?.remove();
+                navbarCombo?.remove();
+                navbarComboSlim?.remove();
+                topNavSlim.style.display = 'block';
+                navbarVertical.style.display = 'inline-block';
+                document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
 
-                } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
-                    navbarDefault?.remove();
-                    navbarVertical?.remove();
-                    navbarTop?.remove();
-                    topNavSlim?.remove();
-                    navbarCombo?.remove();
-                    navbarComboSlim?.remove();
-                    dualNav?.remove();
-                    navbarTopSlim.removeAttribute('style');
-                    document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
-                } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
-                    navbarDefault?.remove();
-                    navbarTop?.remove();
-                    topNavSlim?.remove();
-                    navbarCombo?.remove();
-                    navbarTopSlim?.remove();
-                    dualNav?.remove();
-                    navbarComboSlim.removeAttribute('style');
-                    navbarVertical.removeAttribute('style');
-                    document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
-                } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
-                    navbarDefault?.remove();
-                    topNavSlim?.remove();
-                    navbarVertical?.remove();
-                    navbarTopSlim?.remove();
-                    navbarCombo?.remove();
-                    navbarComboSlim?.remove();
-                    dualNav?.remove();
-                    navbarTop.removeAttribute('style');
-                    document.documentElement.setAttribute('data-navigation-type', 'horizontal');
-                } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
-                    topNavSlim?.remove();
-                    navbarTop?.remove();
-                    navbarTopSlim?.remove();
-                    navbarDefault?.remove();
-                    navbarComboSlim?.remove();
-                    dualNav?.remove();
-                    navbarCombo.removeAttribute('style');
-                    navbarVertical.removeAttribute('style');
-                    document.documentElement.setAttribute('data-navigation-type', 'combo');
-                } else {
-                    topNavSlim?.remove();
-                    navbarTop?.remove();
-                    navbarTopSlim?.remove();
-                    navbarCombo?.remove();
-                    navbarComboSlim?.remove();
-                    dualNav?.remove();
-                    navbarDefault.removeAttribute('style');
-                    navbarVertical.removeAttribute('style');
-                }
+            } else if (navbarTopShape === 'slim' && navbarPosition === 'horizontal') {
+                navbarDefault?.remove();
+                navbarVertical?.remove();
+                navbarTop?.remove();
+                topNavSlim?.remove();
+                navbarCombo?.remove();
+                navbarComboSlim?.remove();
+                dualNav?.remove();
+                navbarTopSlim.removeAttribute('style');
+                document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+            } else if (navbarTopShape === 'slim' && navbarPosition === 'combo') {
+                navbarDefault?.remove();
+                navbarTop?.remove();
+                topNavSlim?.remove();
+                navbarCombo?.remove();
+                navbarTopSlim?.remove();
+                dualNav?.remove();
+                navbarComboSlim.removeAttribute('style');
+                navbarVertical.removeAttribute('style');
+                document.documentElement.setAttribute('data-navbar-horizontal-shape', 'slim');
+            } else if (navbarTopShape === 'default' && navbarPosition === 'horizontal') {
+                navbarDefault?.remove();
+                topNavSlim?.remove();
+                navbarVertical?.remove();
+                navbarTopSlim?.remove();
+                navbarCombo?.remove();
+                navbarComboSlim?.remove();
+                dualNav?.remove();
+                navbarTop.removeAttribute('style');
+                document.documentElement.setAttribute('data-navigation-type', 'horizontal');
+            } else if (navbarTopShape === 'default' && navbarPosition === 'combo') {
+                topNavSlim?.remove();
+                navbarTop?.remove();
+                navbarTopSlim?.remove();
+                navbarDefault?.remove();
+                navbarComboSlim?.remove();
+                dualNav?.remove();
+                navbarCombo.removeAttribute('style');
+                navbarVertical.removeAttribute('style');
+                document.documentElement.setAttribute('data-navigation-type', 'combo');
+            } else {
+                topNavSlim?.remove();
+                navbarTop?.remove();
+                navbarTopSlim?.remove();
+                navbarCombo?.remove();
+                navbarComboSlim?.remove();
+                dualNav?.remove();
+                navbarDefault.removeAttribute('style');
+                navbarVertical.removeAttribute('style');
+            }
 
-                var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
-                var navbarTop = document.querySelector('.navbar-top');
-                if (navbarTopStyle === 'darker') {
-                    navbarTop.setAttribute('data-navbar-appearance', 'darker');
-                }
+            var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+            var navbarTop = document.querySelector('.navbar-top');
+            if (navbarTopStyle === 'darker') {
+                navbarTop.setAttribute('data-navbar-appearance', 'darker');
+            }
 
-                var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
-                var navbarVertical = document.querySelector('.navbar-vertical');
-                if (navbarVerticalStyle === 'darker') {
-                    navbarVertical.setAttribute('data-navbar-appearance', 'darker');
-                }
+            var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+            var navbarVertical = document.querySelector('.navbar-vertical');
+            if (navbarVerticalStyle === 'darker') {
+                navbarVertical.setAttribute('data-navbar-appearance', 'darker');
+            }
             </script>
 
 
@@ -580,7 +591,8 @@
                                     <span class="fas fa-search search-box-icon"></span>
                                 </form>
                                 <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none"
-                                    data-bs-dismiss="search"><button class="btn btn-link p-0" aria-label="Close"></button>
+                                    data-bs-dismiss="search"><button class="btn btn-link p-0"
+                                        aria-label="Close"></button>
                                 </div>
 
                             </div>
@@ -600,7 +612,7 @@
 
         <!-- ===============================================-->
         <!--    JavaScripts-->
-            
+
         <!-- ===============================================-->
         <script src="{{asset('adassets/vendors/popper/popper.min.js')}}'"></script>
         <script src="{{asset('adassets/vendors/bootstrap/bootstrap.min.js')}}"></script>
@@ -613,7 +625,8 @@
         <script src="{{asset('adassets/vendors/dayjs/dayjs.min.js')}}"></script>
         <script src="{{asset('adassets/vendors/leaflet/leaflet.js')}}"></script>
         <script src="{{asset('adassets/vendors/leaflet.markercluster/leaflet.markercluster.js')}}"></script>
-        <script src="{{asset('adassets/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js')}}"></script>
+        <script src="{{asset('adassets/vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js')}}">
+        </script>
         <script src="{{asset('adassets/js/phoenix.js')}}"></script>
         <script src="{{asset('adassets/vendors/echarts/echarts.min.js')}}"></script>
         <!-- <script src="{{asset('adassets/js/dashboards/ecommerce-dashboard.js')}}"></script> -->
@@ -621,7 +634,7 @@
 
         <script src="https://unpkg.com/feather-icons"></script>
         <script>
-            feather.replace();
+        feather.replace();
         </script>
 
     </body>

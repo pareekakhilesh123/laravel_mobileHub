@@ -87,74 +87,8 @@ class Insertcategory extends Component
 
         return back();
     }
+ 
 
-
-
-
-    // Update Product Code 
-    public function updateproduct(Request $request)
-{
-    $pid = $request->pid; // Product ID
-
-    // Find product by ID
-    $update = Allproducts::where('id', $pid)->first();
-
-    // Update fields
-    $update->product_title       = $request->title;
-    $update->product_description = $request->description;
-    $update->category_id         = $request->cate_id;
-    $update->sub_category_id     = $request->sub_id;
-    $update->priority            = $request->priority ?? 10;
-
-    $update->quantity        = $request->quantity;
-    $update->price           = $request->price;
-    $update->discount_type   = $request->discount_type;
-    $update->discount_rate   = $request->discount_rate;
-    $update->tax_amount      = $request->tax_amount;
-    $update->shipping_cost   = $request->shipping_cost;
-    $update->final_price     = $request->final_price;
-    $update->meta_title      = $request->meta_title;
-    $update->meta_keywords   = $request->meta_keywords;
-    $update->meta_description = $request->meta_description;
-
-    $update->feature_key   = implode(',', $request->feature_keys);
-    $update->feature_value = implode(',', $request->feature_values);
-
-    // Thumbnail update (optional)
-    if ($request->hasFile('thumbnail')) {
-        $profile = time() . '.' . $request->file('thumbnail')->extension();
-        $request->file('thumbnail')->move(public_path('allimage'), $profile);
-        $update->thumbnail_image = $profile;
-    }
-
-    // Multiple images update (optional)
-    if ($request->hasFile('multipleimage')) {
-        $images = [];
-
-        foreach ($request->file('multipleimage') as $file) {
-            if ($file && $file->isValid()) {
-                $filename = time() . '_' . $file->getClientOriginalName();
-                $file->move(public_path('allimage'), $filename);
-                $images[] = $filename;
-            }
-        }
-
-        $update->images = implode(',', $images);
-    }
-
-    // Save product update
-    $update->save();
-
-    // Junction table update
-    $jun = junction_product::where('product_id', $pid)->first();
-    if ($jun) {
-        $jun->qty    = $request->quantity;
-        $jun->status = 'Active';
-        $jun->save();
-    }
-
-    return back()->with('success', 'Product Updated Successfully!');
-}
 
 
 }

@@ -10,6 +10,7 @@ use App\Livewire\Productdetails;
 use App\Livewire\Industries;
 use App\Livewire\Thankyou;
 
+use App\Livewire\Pdetail;
 
 
 use App\Livewire\admin\Dashboard;
@@ -29,8 +30,12 @@ Route::get('/about-us', about::class)->name('about');
 Route::get('/contact-us', contact::class)->name('contact');
 Route::get('/products', products::class)->name('products');
 Route::get('/blogs', Blogs::class)->name('blogs');
-Route::get('/productdetails', Productdetails::class)->name('Productdetails');
+
+Route::get('/productdetails/{id}', Productdetails::class);
+Route::get('/detailprod/{id}', Pdetail::class);
+
 Route::get('/industries', Industries::class)->name('Industries');
+
 Route::get('/thankyou', Thankyou::class)->name('thanks');
 // static contact page data post 
   Route::post('/contact-us', [contact::class, 'contactpost'])->name('postcontact');
@@ -77,9 +82,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
       // Productlist
    Route::get('/admin/products', Productslist::class)->name('Productslist');
     Route::get('delete-product/{id}', [Productslist::class, 'deleteProduct']);
+      Route::post('/admin/update/products', [Productslist::class, 'updateproduct'])->name('Updateproduct');
+      Route::get('/get-subcategories/{id}', [Productslist::class, 'getSubcategories']);
+      Route::post('/update/status/product', [Productslist::class, 'changestatus']);
+   
+
 
     // productprevieew
     Route::get('/admin/Productpreview', Productpreview::class)->name('ProductPreview');
-    
-Route::get('/admin/product/preview/{id}', Productpreview::class)->name('adminProductPreview');
+    Route::get('/admin/product/preview/{id}', Productpreview::class)->name('adminProductPreview');
+
     });

@@ -27,43 +27,55 @@
           </div>
 
           <!--Form Start -->
-          <form method="post" action="{{ route('postcontact') }}" id="itemForm"
-            enctype="multipart/form-data" class="needs-validation" novalidate>
-            @csrf
-            <div class="row">
-              
-              <!-- Name -->
-              <div class="col-lg-12 message-box ">
-                <input type="text" name="name" class="form-control " placeholder="Name" required>
-                <div class="invalid-feedback ">Please enter your name.</div>
-              </div>
+        <form method="post" action="{{ route('postcontact') }}" id="itemForm" 
+      enctype="multipart/form-data" class="needs-validation" novalidate>
+  @csrf
+  <div class="row g-3 p-3 bg-light shadow rounded">
 
-              <!-- Email -->
-              <div class="col-lg-12 message-box ">
-                <input type="email" name="email" class="form-control text-lowercase" placeholder="Email" required>
-                <div class="invalid-feedback ">Please enter a valid email address.</div>
-              </div>
+    <!-- Heading -->
+    <div class="col-12 text-center mb-3">
+      <h3 class="fw-bold">Contact Us</h3>
+      <p class="text-muted">We would love to hear from you!</p>
+    </div>
 
-              <!-- Phone -->
-              <div class="col-lg-12 message-box ">
-                <input type="tel" name="phone" class="form-control" placeholder="Mobile Number" 
-                       pattern="[0-9]{10}" maxlength="10" required>
-                <div class="invalid-feedback ">Please enter a valid 10-digit mobile number.</div>
-              </div>
+    <!-- Name -->
+    <div class="col-md-6">
+      <label class="form-label fw-semibold">Name</label>
+      <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+      <div class="invalid-feedback">Please enter your name.</div>
+    </div>
 
-              <!-- Message -->
-              <div class="col-lg-12 message-box ">
-                <textarea name="message" class="form-control" placeholder="Leave Your Message Here....." required></textarea>
-                <div class="invalid-feedback ">Message cannot be empty.</div>
-              </div>
+    <!-- Email -->
+    <div class="col-md-6">
+      <label class="form-label fw-semibold">Email</label>
+      <input type="email" name="email" class="form-control text-lowercase" placeholder="Enter your email" required>
+      <div class="invalid-feedback">Please enter a valid email address.</div>
+    </div>
 
-              <!-- Submit -->
-              <div class="col-lg-12 message-box">
-                <button type="submit" class="btn-1">Send Your Message</button>
-              </div>
+    <!-- Phone -->
+    <div class="col-md-6">
+      <label class="form-label fw-semibold">Mobile Number</label>
+      <input type="tel" name="phone" class="form-control" placeholder="10-digit number" 
+             pattern="[0-9]{10}" maxlength="10" required>
+      <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+    </div>
 
-            </div>
-          </form>
+    <!-- Message -->
+    <div class="col-md-12">
+      <label class="form-label fw-semibold">Message</label>
+      <textarea name="message" rows="4" class="form-control" placeholder="Leave your message here..." required></textarea>
+      <div class="invalid-feedback">Message cannot be empty.</div>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary px-5 py-2 mt-3 shadow-sm">
+        Send Message
+      </button>
+    </div>
+  </div>
+</form>
+
           <!--  Form End -->
 
         </div>

@@ -134,10 +134,11 @@
     <!-- Discount Type -->
     <div class="col-md-3 col-4">
         <label for="discount_type" class="form-label">Discount Type</label>
-        <select class="form-select" id="discount_type" name="discount_type">
-            <option value="percent">Percent</option>
-            <option value="flat">Flat</option>
-        </select>
+       <select class="form-select" id="discount_type" name="discount_type" required>
+        <option value="" selected disabled>-- Select Discount Type --</option>
+        <option value="percent">Percent</option>
+        <option value="flat">Flat</option>
+    </select>
     </div>
 
     <!-- Discount Rate -->
