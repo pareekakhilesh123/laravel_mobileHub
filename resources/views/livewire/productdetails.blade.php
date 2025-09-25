@@ -23,7 +23,7 @@
             <div class="row align-items-start ">
 
                 <!-- Product Gallery -->
-                <div class="col-lg-6 mb-4 mb-lg-0 d-flex " style="gap: 10px">
+                <div class="col-lg-6 mb-4 mb-lg-0" style="gap: 10px">
 
                     <!-- Thumbnails -->
                     <div class="product-thumbs me-3 justify-content-center mr-3">

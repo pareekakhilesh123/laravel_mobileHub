@@ -19,42 +19,39 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Contact Form -->
-      <div class="col-md-6">
-        <div class="contact-text-box">
-          <div class="sec-title">
-            <h2>Leave Your Message</h2>
-            <h3>Get In <span>Touch</span></h3>
-          </div>
+      <div class="col-md-6 " >
+        <div class="contact-text-box ">
+         
 
           <!--Form Start -->
         <form method="post" action="{{ route('postcontact') }}" id="itemForm" 
       enctype="multipart/form-data" class="needs-validation" novalidate>
   @csrf
-  <div class="row g-3 p-3 bg-light shadow rounded">
+  <div class="row g-3 p-3 bg-light  ">
 
     <!-- Heading -->
-    <div class="col-12 text-center mb-3">
-      <h3 class="fw-bold">Contact Us</h3>
-      <p class="text-muted">We would love to hear from you!</p>
-    </div>
+    <div class="sec-title ">
+            <h2>Leave Your Message</h2>
+            <h3>Get In <span>Touch</span></h3>
+          </div>
 
     <!-- Name -->
-    <div class="col-md-6">
-      <label class="form-label fw-semibold">Name</label>
-      <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+    <div class="col-md-12">
+      <label class="form-label fw-semibold text-dark">Name</label>
+      <input type="text" name="name" class="form-control " placeholder="Enter your name" required>
       <div class="invalid-feedback">Please enter your name.</div>
     </div>
 
     <!-- Email -->
-    <div class="col-md-6">
-      <label class="form-label fw-semibold">Email</label>
-      <input type="email" name="email" class="form-control text-lowercase" placeholder="Enter your email" required>
+    <div class="col-md-12">
+      <label class="form-label fw-semibold text-dark">Email</label>
+      <input type="email" name="email" class="form-control " placeholder="Enter your email" required>
       <div class="invalid-feedback">Please enter a valid email address.</div>
     </div>
 
     <!-- Phone -->
-    <div class="col-md-6">
-      <label class="form-label fw-semibold">Mobile Number</label>
+    <div class="col-md-12">
+      <label class="form-label fw-semibold text-dark">Mobile Number</label>
       <input type="tel" name="phone" class="form-control" placeholder="10-digit number" 
              pattern="[0-9]{10}" maxlength="10" required>
       <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
@@ -62,7 +59,7 @@
 
     <!-- Message -->
     <div class="col-md-12">
-      <label class="form-label fw-semibold">Message</label>
+      <label class="form-label fw-semibold text-dark">Message</label>
       <textarea name="message" rows="4" class="form-control" placeholder="Leave your message here..." required></textarea>
       <div class="invalid-feedback">Message cannot be empty.</div>
     </div>
@@ -117,5 +114,4 @@
   });
 </script>
 </div>
-
 

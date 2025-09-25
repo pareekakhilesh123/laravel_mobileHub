@@ -16,62 +16,57 @@
             </div>
         </section>
 
-<section class="blog area py-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <div class="sec-title text-center mb-5">
-                    <h2>Our Products</h2>
-                    <h3>Accessories That <span>Power Your Lifestyle</span></h3>
-                    <p>
-                        At <strong>MobileHub</strong>, we create accessories that combine innovation, style, 
-                        and performance. From fast chargers to crystal-clear audio devices, 
-                        our products are designed to make your mobile experience smarter and better every day.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            @foreach($products as $product)
-            <div class="col-md-4 mb-4">
-                <div class="blog-item">
-                    <!-- Product Image -->
-                    <div class="img-blog">
-                        <img class="img-fluid products-img-radius"
-                             src="{{ asset('allimage/'.$product->thumbnail_image) }}"
-                             alt="{{ $product->product_title }}">
-                    </div>
-
-                    <!-- Product Text -->
-                    <div class="text-blog p-20">
-                        <h5 class="title-blog">
-                            <a href="{{ url('detailprod/'.$product->id) }}">
-                                {{ $product->product_title }}
-                            </a>
-                        </h5>
+ <section class="blog area py-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="sec-title text-center mb-5">
+                        <h2>Our Products</h2>
+                        <h3>Accessories That <span>Power Your Lifestyle</span></h3>
                         <p>
-                            {{ Str::limit(strip_tags($product->product_description), 100, '...') }}
+                            At <strong>MobileHub</strong>, we create accessories that combine innovation, style,
+                            and performance. From fast chargers to crystal-clear audio devices,
+                            our products are designed to make your mobile experience smarter and better every day.
                         </p>
-                        <div class="buttons">
-                            <a href="{{ url('detailprod/'.$product->id) }}" class="blog-open mt-11">Read More</a>
-                        </div>
                     </div>
                 </div>
             </div>
-            @endforeach
 
-            <!-- Pagination (अगर चाहिए) -->
-            <div class="col-md-12">
-                <div class="pagination-blog-area">
-                    <div class="d-flex justify-content-center">
-                        {{ $products->links() }} {{-- अगर paginate() use करोगे तो --}}
-                    </div>
+            <div class="row">
+            @foreach($products as $product)
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="blog-item h-100">
+            <!-- Product Image -->
+            <div class="img-blog">
+                <img class="img-fluid products-img-radius w-100 h-100" 
+                     style="object-fit: cover; max-height: 280px;" 
+                     src="{{ asset('allimage/'.$product->thumbnail_image) }}"
+                     alt="{{ $product->product_title }}">
+            </div>
+
+            <!-- Product Text -->
+            <div class="text-blog p-3">
+                <h5 class="title-blog">
+                    <a href="{{ url('detailprod/'.$product->id) }}">
+                        {{ $product->product_title }}
+                    </a>
+                </h5>
+                <p>
+                    {{ Str::limit(strip_tags($product->product_description), 100, '...') }}
+                </p>
+                <div class="buttons">
+                    <a href="{{ url('detailprod/'.$product->id) }}" class="blog-open mt-2">Read More</a>
                 </div>
             </div>
         </div>
     </div>
-</section>
+@endforeach
+
+
+               
+
+            </div>
+    </section>
 
 
     <section class="testimonials py-100">

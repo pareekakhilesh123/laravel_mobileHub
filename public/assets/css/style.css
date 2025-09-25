@@ -2471,7 +2471,7 @@ background-color: #3498DB;
 /* Mobile View: Thumbnails row me */
 @media (max-width: 768px) {
   .product-thumbs {
-       flex-direction: column;
+       flex-direction: column-reverse;
     align-items: center
   }
 
@@ -2483,6 +2483,9 @@ background-color: #3498DB;
   .product-image img {
     height: auto; /* Mobile me auto height */
     max-height: 300px;
+  }
+  .rowdir{
+    flex-direction: column-reverse ;
   }
 }
 /* Chrome, Safari, Edge ke liye */

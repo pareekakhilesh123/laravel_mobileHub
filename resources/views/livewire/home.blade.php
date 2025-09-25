@@ -43,14 +43,15 @@
                 <!-- Left Card -->
                 <div class="col-md-6">
                     <div
-                        class="rounded shadow-lg text-white position-relative d-flex flex-column justify-content-center">
-                        <img src="assets/images/sponsors/09_sponsors.jpg" alt="Sponsor showcase" class="rounded" style="height: 400px; object-fit: cover;" />
+                        class="rounded  text-white position-relative d-flex flex-column justify-content-center">
+                        <img src="assets/images/sponsors/09_sponsors.jpg" alt="Sponsor showcase" class="rounded"
+                            style="height: 400px; object-fit: cover;" />
                     </div>
                 </div>
 
                 <!-- Right Side  -->
-                <div class="sec-title  col-md-6 d-flex flex-column justify-content-center text-dark">
-                    <h4 class="fw-bold mb-4">About Mobile hub</h4>
+                <div class="sec-title  col-md-6 d-flex flex-column justify-content-center ">
+                    <h3 class="fw-bold mb-4 pl-3 ">About Mobile hub </h3>
 
                     <div class="mb-3 d-flex sec-title ">
                         <i class="bi bi-plus-circle text-primary fs-4 me-3"></i>
@@ -96,165 +97,67 @@
         </div>
     </section>
 
-        
+
     <!-- 3section  About-->
     <section class="blog area py-100">
         <div class="container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <div class="sec-title text-center mb-5">
-                            <h2>Our Products</h2>
-                            <h3>Accessories That <span>Power Your
-                                    Lifestyle</span></h3>
-                            <p>
-                                At <strong>MobileHub</strong>, we create accessories that combine innovation, style, and
-                                performance.
-                                From fast chargers to crystal-clear audio devices, our products are designed to make
-                                your mobile
-                                experience smarter and better every day.
-                            </p>
-                        </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="sec-title text-center mb-5">
+                        <h2>Our Products</h2>
+                        <h3>Accessories That <span>Power Your Lifestyle</span></h3>
+                        <p>
+                            At <strong>MobileHub</strong>, we create accessories that combine innovation, style,
+                            and performance. From fast chargers to crystal-clear audio devices,
+                            our products are designed to make your mobile experience smarter and better every day.
+                        </p>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="blog-item">
-                                    <div class="img-blog ">
-                                        <img class="img-fluid products-img-radius " src="assets/images/blog/1.jpg"
-                                            alt="01 Blog">
-                                    </div>
-                                    <div class="text-blog p-20">
-                                        <div class="time-and-tag ">
-                                            <!-- <span class="time">May 5, 2019</span> -->
-
-                                        </div>
-                                        <h5 class="title-blog"><a href="single-blog.html">Steps To Encourage Yourself To
-                                                Work</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor
-                                            ...</p>
-                                        <div class="buttons">
-                                            <a href="single-blog.html" class="blog-open mt-11">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog-item">
-                                    <div class="img-blog">
-                                        <img class="img-fluid products-img-radius" src="assets/images/blog/2.jpg"
-                                            alt="02 Blog">
-                                    </div>
-                                    <div class="text-blog p-20">
-
-                                        <div class="time-and-tag">
-                                            <!-- <span class="time">May 11, 2019</span> -->
-
-                                        </div>
-                                        <h5 class="title-blog"><a href="single-blog.html">Steps To Encourage Yourself To
-                                                Work</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor
-                                            ...</p>
-                                        <a href="single-blog.html" class="blog-open mt-11">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog-item">
-                                    <div class="img-blog">
-                                        <img class="img-fluid products-img-radius" src="assets/images/blog/3.jpg"
-                                            alt="03 Blog">
-                                    </div>
-                                    <div class="text-blog p-20">
-
-                                        <div class="time-and-tag">
-                                            <!-- <span class="time">May 28, 2019</span> -->
-
-                                        </div>
-                                        <h5 class="title-blog"><a href="single-blog.html">Steps To Encourage Yourself To
-                                                Work</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor
-                                            ...</p>
-                                        <a href="single-blog.html" class="blog-open mt-11">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog-item">
-                                    <div class="img-blog">
-                                        <img class="img-fluid products-img-radius" src="assets/images/blog/4.jpg"
-                                            alt="01 Blog">
-                                    </div>
-                                    <div class="text-blog p-20">
-
-                                        <div class="time-and-tag">
-                                            <!-- <span class="time">May 5, 2019</span> -->
-
-                                        </div>
-                                        <h5 class="title-blog"><a href="single-blog.html">Steps To Encourage Yourself To
-                                                Work</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor
-                                            ...</p>
-                                        <a href="single-blog.html" class="blog-open mt-11">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog-item">
-                                    <div class="img-blog ">
-                                        <img class="img-fluid products-img-radius" src="assets/images/blog/5.jpg"
-                                            alt="03 Blog">
-                                    </div>
-                                    <div class="text-blog p-20">
-
-                                        <div class="time-and-tag">
-                                            <!-- <span class="time">May 28, 2019</span> -->
-
-                                        </div>
-                                        <h5 class="title-blog"><a href="single-blog.html">Steps To Encourage Yourself To
-                                                Work</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor
-                                            ...</p>
-                                        <a href="single-blog.html" class="blog-open mt-11">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog-item">
-                                    <div class="img-blog">
-                                        <img class="img-fluid products-img-radius" src="assets/images/blog/6.jpg"
-                                            alt="03 Blog">
-                                    </div>
-                                    <div class="text-blog p-20">
-
-                                        <div class="time-and-tag">
-                                            <!-- <span class="time">May 28, 2019</span> -->
-
-                                        </div>
-                                        <h5 class="title-blog"><a href="single-blog.html ">Steps To Encourage Yourself
-                                                To Work</a></h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor
-                                            ...</p>
-                                        <a href="single-blog.html" class="blog-open mt-11">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="pagination-blog-area">
-                                    <div class="d-flex justify-content-center">
-                                        <span class="btn-1">View All</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+
+            <div class="row">
+                @foreach($products as $product)
+               <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="blog-item h-100">
+            <!-- Product Image -->
+            <div class="img-blog">
+                <img class="img-fluid products-img-radius w-100 h-100" 
+                    style="object-fit: cover; max-height: 280px;" 
+                    src="{{ asset('allimage/' . $product->thumbnail_image) }}" 
+                    alt="{{ $product->product_title }}">
+            </div>
+
+            <!-- Product Text -->
+            <div class="text-blog p-3">
+                <h5 class="title-blog">
+                    <a href="{{ url('detailprod/' . $product->id) }}">
+                        {{ $product->product_title }}
+                    </a>
+                </h5>
+                <p>
+                    {{ Str::limit(strip_tags($product->product_description), 100, '...') }}
+                </p>
+                <div class="buttons">
+                    <a href="{{ url('detailprod/' . $product->id) }}" class="blog-open mt-2">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+                @endforeach
+
+
+                <div class="col-md-12">
+                                <div class="pagination-blog-area">
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{ route('products') }}" class="btn-1">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+
+            </div>
     </section>
+
+
 
     <!-- ::  4section About One -->
     <section class="questions-and-presentation " id="about">
@@ -465,7 +368,7 @@
     </section>
 
     <!--  7Section -->
-          <section class="testimonials py-100">
+    <section class="testimonials py-100">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -559,7 +462,7 @@
 
 
     <!-- 8section -->
-<section class="sponsors py-100">
+    <section class="sponsors py-100">
         <div class="overlay-3"></div>
         <div class="container">
             <div class="row">
@@ -602,7 +505,7 @@
         </div>
     </section>
 
-  
+
 
 
 
@@ -615,7 +518,7 @@
 
     <!-- 9section -->
 
-    
+
 
 
 

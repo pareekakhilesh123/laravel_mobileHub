@@ -1,9 +1,7 @@
     <!DOCTYPE html>
     <html lang="en-US" dir="ltr" data-navigation-type="default" data-navbar-horizontal-shape="default">
 
-
-    <!-- Mirrored from prium.github.io/phoenix/v1.23.0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Sep 2025 09:51:58 GMT -->
-    <!-- Added by HTTrack -->
+  
     <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
     <head>
@@ -216,17 +214,99 @@
                                 </div>
                             </li>
 
+                            
 
-                            <div class="nav-item-wrapper">
-                                <a class="nav-link label-1 {{ request()->routeIs('Enquiry') ? 'active' : '' }}"
+
+<li class="nav-item"> 
+    <p class="navbar-vertical-label">Enquiry</p>
+    <hr class="navbar-vertical-line" />
+
+    <div class="nav-item-wrapper">
+        <a class="nav-link dropdown-indicator label-1" href="#enquiryMenu" role="button"
+            data-bs-toggle="collapse" aria-expanded="false" aria-controls="enquiryMenu">
+            <div class="d-flex align-items-center">
+                <div class="dropdown-indicator-icon-wrapper">
+                    <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                </div>
+                <span class="nav-link-icon"><span data-feather="mail"></span></span>
+                <span class="nav-link-text">Enquiry</span>
+            </div>
+        </a>
+
+        <div class="parent-wrapper label-1">
+            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
+                id="enquiryMenu">
+
+                <!-- Product Enquiry -->
+                <li class="nav-item">
+                    <a class="nav-link label-1 {{ request()->routeIs('ProductEnquiry') ? 'active' : '' }}"
+                        href="{{ route('ProductEnquiry') }}">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Product Enquiry</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Contact Enquiry -->
+                <li class="nav-item">
+                   <a class="nav-link label-1 {{ request()->routeIs('Enquiry') ? 'active' : '' }}"
                                     href="{{ route('Enquiry') }}">
-                                    <div class="d-flex align-items-center">
-                                        <span class="nav-link-icon"><span data-feather="message-square"></span></span>
-                                        <span class="nav-link-text">Enquiry</span>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Contact Enquiry</span>
+                        </div>
+                    </a>
+                </li>
 
+            </ul>
+        </div>
+    </div>
+</li>
+
+
+<li class="nav-item"> 
+    <p class="navbar-vertical-label">Blog</p>
+    <hr class="navbar-vertical-line" />
+
+    <div class="nav-item-wrapper">
+        <a class="nav-link dropdown-indicator label-1" href="#blogMenu" role="button"
+            data-bs-toggle="collapse" aria-expanded="false" aria-controls="blogMenu">
+            <div class="d-flex align-items-center">
+                <div class="dropdown-indicator-icon-wrapper">
+                    <span class="fas fa-caret-right dropdown-indicator-icon"></span>
+                </div>
+                <span class="nav-link-icon"><span data-feather="edit"></span></span>
+                <span class="nav-link-text">Blog</span>
+            </div>
+        </a>
+
+        <div class="parent-wrapper label-1">
+            <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
+                id="blogMenu">
+
+                <!-- Add Blog -->
+                <li class="nav-item">
+                    <a class="nav-link label-1 {{ request()->routeIs('addblog') ? 'active' : '' }}"
+                        href="{{ route('addblog') }}">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Add Blog</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Blog List -->
+                <li class="nav-item">
+                    <a class="nav-link label-1 {{ request()->routeIs('bloglist') ? 'active' : '' }}"
+                        href="{{ route('bloglist') }}">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Blog List</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</li>
 
                         </ul>
                     </div>
@@ -614,9 +694,9 @@
         <!--    JavaScripts-->
 
         <!-- ===============================================-->
-        <script src="{{asset('adassets/vendors/popper/popper.min.js')}}'"></script>
+<script src="{{asset('adassets/vendors/popper/popper.min.js')}}"></script>
         <script src="{{asset('adassets/vendors/bootstrap/bootstrap.min.js')}}"></script>
-        <script src="{{asset('adassets/vendors/anchorjs/anchor.min.js')}}}"></script>
+  <script src="{{asset('adassets/vendors/anchorjs/anchor.min.js')}}"></script>
         <script src="{{asset('adassets/vendors/is/is.min.js')}}"></script>
         <script src="{{asset('adassets/vendors/fontawesome/all.min.js')}}"></script>
         <script src="{{asset('adassets/vendors/lodash/lodash.min.js')}}"></script>
@@ -633,13 +713,23 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="https://unpkg.com/feather-icons"></script>
+    
+        <script src="{{asset('adassets/js/phoenix.js')}}"></script>
+<script src="{{asset('adassets/js/advance-ajax-table.js')}}">
+
+    document.addEventListener("DOMContentLoaded", function() {
+  if (window.phoenix && phoenix.utils) {
+    // init your table
+  } else {
+    console.warn("Phoenix utils not available yet.");
+  }
+});
+</script>
+
+
         <script>
         feather.replace();
         </script>
 
-    </body>
-
-
-    <!-- Mirrored from prium.github.io/phoenix/v1.23.0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Sep 2025 09:53:29 GMT -->
-
-    </html>
+    </body> 
+ </html>

@@ -93,7 +93,7 @@
                                     <img id="thumbPreview" class="rounded"
                                         style="max-width: 120px; max-height: 120px; object-fit: contain;" />
                                     <button type="button" id="removeThumb"
-                                        class="btn btn-sm btn-danger position-absolute top-0 end-0">×</button>
+                                        class="btn btn-sm btn-danger position-absolute top-0 end-0" >×</button>
                                 </div>
                             </div>
 
@@ -227,7 +227,9 @@
                                     </div>
                                     <!-- Remove Button -->
                                     <div class="col-md-2 d-grid">
-                                        <button type="button" class="btn btn-outline-danger remove-feature">X</button>
+                                        <button type="button" class="btn btn-outline-danger remove-feature" style="
+    width: 60px;
+">X</button>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +269,9 @@
         <input type="text" class="form-control" name="feature_values[]" placeholder="Enter Value (e.g. Red)">
       </div>
       <div class="col-md-2 d-grid">
-        <button type="button" class="btn btn-outline-danger remove-feature">X</button>
+        <button type="button" class="btn btn-outline-danger remove-feature" style="
+    width: 60px;
+">X</button>
       </div>
     `;
         wrapper.appendChild(newRow);

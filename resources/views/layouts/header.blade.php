@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from postup-jade.vercel.app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Sep 2025 09:47:22 GMT -->
-<!-- Added by HTTrack -->
+ 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
@@ -24,33 +23,39 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap">
-<!-- icons  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- :: Font Awesome CSS -->
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome/css/all.min.css')}}">
 
     <!-- :: Linearicons CSS -->
-    <link rel="stylesheet" href="assets/fonts/linearicons/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/fonts/linearicons/css/style.css')}}">
 
     <!-- :: Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
 
     <!-- :: lity CSS -->
-    <link rel="stylesheet" href="assets/css/lity.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/lity.min.css')}}">
 
     <!-- :: Owl Carousel CSS -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.css">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.css')}}">
 
     <!-- :: Magnific Popup CSS -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
 
     <!-- :: Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
     <!-- :: Style Responsive CSS -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (with Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -74,14 +79,16 @@
     <nav class="navbar fixed-top navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{route('home')}}">MobileHub</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtoggleid"
-                aria-controls="navtoggleid" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="lnr lnr-menu"></i>
-            </button>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navtoggleid"
+    aria-controls="navtoggleid" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="lnr lnr-menu"></i>
+</button>
+
             <div class="collapse navbar-collapse" id="navtoggleid">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="{{route('home')}}">Home <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownList-1" role="button"
@@ -90,11 +97,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownList-1">
                             <a class="dropdown-item" href="{{route('products')}}">All Products</a>
-                  
+
                             <a class="dropdown-item" href="{{route('home')}}">Our Gallery</a>
                             <a class="dropdown-item" href="{{route('home')}}">Our Partner</a>
                             <a class="dropdown-item" href="{{route('home')}}">Testimonials</a>
-                            <a class="dropdown-item"href="{{route('home')}}">FAQ</a>
+                            <a class="dropdown-item" href="{{route('home')}}">FAQ</a>
                         </div>
                     </li>
 
@@ -243,64 +250,64 @@
         {{$slot}}
     </main>
     <!-- :: Footer -->
-  <footer class="">
-    <div class="container">
-        <div class="row g-4">
+    <footer class="">
+        <div class="container">
+            <div class="row g-4">
 
-            <!-- Company Info -->
-            <div class="col-md-4 p-100">
-                <h4 class="fw-bold text-uppercase mb-3">MobileHub</h4>
-                <p>
-                    Powering the Future with Smart Electronic & IT Solutions.
-                    We deliver innovation, reliability, and quality to industries worldwide.
-                </p>
-                <div class="d-flex social-icons mt-3">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Company Info -->
+                <div class="col-md-4 p-100">
+                    <h4 class="fw-bold text-uppercase mb-3">MobileHub</h4>
+                    <p>
+                        Powering the Future with Smart Electronic & IT Solutions.
+                        We deliver innovation, reliability, and quality to industries worldwide.
+                    </p>
+                    <div class="d-flex social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('about')}}">About</a></li>
+                        <li><a href="{{route('blogs')}}">Blog</a></li>
+                        <li><a href="{{route('contact')}}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Industries -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Industries</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Telecom</a></li>
+                        <li><a href="#">IT Solutions</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Education</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
+                    <div class="contact-info"><i class="fas fa-map-marker-alt"></i><span>Los Angeles, USA</span></div>
+                    <div class="contact-info"><i class="fas fa-envelope"></i><span>support@mobilehub.com</span></div>
+                    <div class="contact-info"><i class="fas fa-phone-alt"></i><span>+1 234 567 890</span></div>
                 </div>
             </div>
 
-            <!-- Quick Links -->
-            <div class="col-md-2">
-                <h5 class="fw-bold mb-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="{{route('home')}}">Home</a></li>
-                    <li><a href="{{route('about')}}">About</a></li>
-                    <li><a href="{{route('blogs')}}">Blog</a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
-                </ul>
-            </div>
+            <hr class="my-4">
 
-            <!-- Industries -->
-            <div class="col-md-3">
-                <h5 class="fw-bold mb-3">Industries</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">Telecom</a></li>
-                    <li><a href="#">IT Solutions</a></li>
-                    <li><a href="#">Healthcare</a></li>
-                    <li><a href="#">Education</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact -->
-            <div class="col-md-3">
-                <h5 class="fw-bold mb-3">Contact Us</h5>
-                <div class="contact-info"><i class="fas fa-map-marker-alt"></i><span>Los Angeles, USA</span></div>
-                <div class="contact-info"><i class="fas fa-envelope"></i><span>support@mobilehub.com</span></div>
-                <div class="contact-info"><i class="fas fa-phone-alt"></i><span>+1 234 567 890</span></div>
+            <!-- Bottom -->
+            <div class="text-center pb-3">
+                <p class="mb-0">&copy; 2025 MobileHub. All Rights Reserved.</p>
             </div>
         </div>
-
-        <hr class="my-4">
-
-        <!-- Bottom -->
-        <div class="text-center pb-3">
-            <p class="mb-0">&copy; 2025 MobileHub. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <!-- :: Scroll Up -->
@@ -312,36 +319,36 @@
 
     <!-- :: JS -->
     <!-- :: jQuery -->
-    <script src="assets/js/jquery-3.5.0.min.js"></script>
+    <script src="{{asset('assets/js/jquery-3.5.0.min.js')}}"></script>
 
     <!-- :: Popper -->
-    <script src="assets/js/popper.min.js"></script>
+    <script src="{{asset('assets/js/popper.min.js')}}"></script>
 
     <!-- :: Bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 
     <!-- :: Lity -->
-    <script src="assets/js/lity.min.js"></script>
+    <script src="{{asset('assets/js/lity.min.js')}}"></script>
 
     <!-- :: Owl Carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 
     <!-- :: Mixitup -->
-    <script src="assets/js/mixitup.min.js"></script>
+    <script src="{{asset('assets/js/mixitup.min.js')}}"></script>
 
     <!-- :: Magnific Popup -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 
     <!-- :: Waypoints -->
-    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
 
     <!-- :: CounterUp -->
-    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
 
     <!-- :: Main -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/main.js')}}">
+        
+    </script>
 </body>
-
-<!-- Mirrored from postup-jade.vercel.app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Sep 2025 09:47:50 GMT -->
 
 </html>

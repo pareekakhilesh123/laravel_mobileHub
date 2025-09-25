@@ -1,12 +1,12 @@
 <div>
 
 <!-- Thank You Section -->
-<section class="py-5 d-flex align-items-center" style="min-height:100vh; background: linear-gradient(135deg, #f8f9fa, #e9f7ef);">
+<section class="py-5 d-flex align-items-center" style="min-height:100vh;  background: linear-gradient(7deg, #f8f9fa, #1b7341);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-9">
                 <!-- Card -->
-                <div class="card shadow-lg border-0 rounded-5 text-center p-5 position-relative animate-card">
+                <div class="card shadow-lg border-0 rounded-5 text-center p-5 position-relative animate-card" style="background: linear-gradient(7deg, #f8f9fa, #bbe1cb);">
                     
                     <!-- Success Icon -->
                     <div class="mb-4 animate-icon">

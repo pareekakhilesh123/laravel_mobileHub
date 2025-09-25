@@ -11,7 +11,7 @@ class Products extends Component
     public function render()
     {
         
-          $data = Allproducts::paginate(6); 
+          $data = Allproducts::paginate(20); 
 
         return view('livewire.products' ,  ['products' => $data ])->layout('layouts.header');
     }

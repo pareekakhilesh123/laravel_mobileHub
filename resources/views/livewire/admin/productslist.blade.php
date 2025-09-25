@@ -15,7 +15,7 @@
     <div class="card shadow-lg border-0">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h4 class="mb-0">All Products </h4>
-            <a  href="{{ route('Insertproduct') }}" class="btn btn-success btn-sm">+ Add Product</a>
+            <a href="{{ route('Insertproduct') }}" class="btn btn-success btn-sm">+ Add Product</a>
         </div>
         <div class="card-body">
             <table id="productTable" class="table table-hover table-striped table-bordered align-middle">
@@ -70,17 +70,13 @@
 
                         <!-- Status (Toggle Button) -->
                         <td class="text-center">
-    <div class="form-check form-switch d-flex justify-content-center">
-      <input 
-    class="form-check-input" 
-    onclick="changestatus({{ $product->id }})" 
-    type="checkbox" 
-    role="switch" 
-    id="SwitchCheck{{ $product->id }}" 
-    @if($product->status === 'Active') checked @endif
->
-    </div>
-</td>
+                            <div class="form-check form-switch d-flex justify-content-center">
+                                <input class="form-check-input" onclick="changestatus({{ $product->id }})"
+                                    type="checkbox" role="switch" id="SwitchCheck{{ $product->id }}"
+                                    @if($product->status === 'Active') checked @endif
+                                >
+                            </div>
+                        </td>
 
                         <!-- Actions -->
                         <td>
@@ -146,7 +142,7 @@
                                                         <div class="invalid-feedback">Please enter the product
                                                             description.</div>
                                                     </div>
-                                                   
+
                                                 </div>
                                             </div>
 
@@ -233,20 +229,21 @@
                                                         <label class="form-label">Multiple Images</label>
                                                         <input type="file" class="form-control multi-input"
                                                             name="multipleimage[]" accept="image/*" multiple>
-                                                     <div class="multi-preview mt-2 d-flex flex-wrap gap-2">
-    @if($product->images)
-        @foreach(explode(',', $product->images) as $img)
-            <div class="position-relative d-inline-block existing-img">
-                <img src="{{ asset('allimage/'.$img) }}" class="rounded"
-                    style="max-width: 100px; max-height: 100px; object-fit: cover;" />
-                <button type="button"
-                    class="btn btn-sm btn-danger position-absolute top-0 end-0 remove-multi"
-                    data-img="{{ $img }}">×</button>
-            </div>
-        @endforeach
-    @endif
-</div>
-<input type="hidden" name="removed_images" class="removed-images-input" value="">
+                                                        <div class="multi-preview mt-2 d-flex flex-wrap gap-2">
+                                                            @if($product->images)
+                                                            @foreach(explode(',', $product->images) as $img)
+                                                            <div class="position-relative d-inline-block existing-img">
+                                                                <img src="{{ asset('allimage/'.$img) }}" class="rounded"
+                                                                    style="max-width: 100px; max-height: 100px; object-fit: cover;" />
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-danger position-absolute top-0 end-0 remove-multi"
+                                                                    data-img="{{ $img }}">×</button>
+                                                            </div>
+                                                            @endforeach
+                                                            @endif
+                                                        </div>
+                                                        <input type="hidden" name="removed_images"
+                                                            class="removed-images-input" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,7 +275,7 @@
                                                         </div>
                                                         <div class="col-md-3 col-4">
                                                             <label for="discount_type{{ $product->id }}"
-                                                                class="form-label">Discount Type</label>
+                                                                class="form-label" required>Discount Type</label>
                                                             <select class="form-select"
                                                                 id="discount_type{{ $product->id }}"
                                                                 name="discount_type">
@@ -298,7 +295,7 @@
                                                             <input type="number" class="form-control"
                                                                 id="discount_rate{{ $product->id }}"
                                                                 name="discount_rate"
-                                                                value="{{ $product->discount_rate }}">
+                                                                value="{{ $product->discount_rate }}" >
                                                         </div>
                                                         <div class="col-md-3">
                                                             <label for="tax_amount{{ $product->id }}"
@@ -428,6 +425,20 @@
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll("textarea[id^='description']").forEach((textarea) => {
+        CKEDITOR.replace(textarea.id, {
+            height: 200,
+            removePlugins: "easyimage,cloudservices"
+        });
+    });
+});
+</script>
+
 
 <script>
 //  Bootstrap Validation
@@ -445,8 +456,9 @@
     });
 })();
 </script>
-<!-- description show  -->
-<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
+
+
 
 
 
@@ -569,7 +581,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-   document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
 
     // 🔹 Thumbnail preview & remove
     document.querySelectorAll(".thumbnail-input").forEach(function(input) {
@@ -636,27 +648,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     //  Remove multiple images (delegation: DB wali + nayi wali dono)
-  document.addEventListener("click", function(e) {
-    if (e.target.classList.contains("remove-multi")) {
-        let div = e.target.closest("div.position-relative");
-        let imgName = e.target.getAttribute("data-img");
+    document.addEventListener("click", function(e) {
+        if (e.target.classList.contains("remove-multi")) {
+            let div = e.target.closest("div.position-relative");
+            let imgName = e.target.getAttribute("data-img");
 
-        // agar ye DB wali image hai to hidden input me add karo
-        if (imgName) {
-            let hiddenInput = div.closest(".col-6").querySelector(".removed-images-input");
-            let oldValue = hiddenInput.value ? hiddenInput.value.split(",") : [];
-            oldValue.push(imgName);
-            hiddenInput.value = oldValue.join(",");
+            // agar ye DB wali image hai to hidden input me add karo
+            if (imgName) {
+                let hiddenInput = div.closest(".col-6").querySelector(".removed-images-input");
+                let oldValue = hiddenInput.value ? hiddenInput.value.split(",") : [];
+                oldValue.push(imgName);
+                hiddenInput.value = oldValue.join(",");
+            }
+
+            // UI se remove karo
+            div.remove();
         }
-
-        // UI se remove karo
-        div.remove();
-    }
-});
+    });
 
 
 });
-
 </script>
 
 
@@ -695,35 +706,36 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-
+ 
 
 <script>
-    function changestatus(id) {
-                                                $.ajaxSetup({
-                                                    headers: {
-                                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                                    }
-                                                });
+function changestatus(id) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-                                                $.ajax({
-                                                    type: "POST",
-                                                    url: "/update/status/product",
-                                                    data: {
-                                                        cateid: id
-                                                    },
-                                                    dataType: "json",
-                                                    success: function(response) {
-                                                        if (response.status) {
-                                                            alert("Product status updated to: " + response.new_status);
-                                                            // Optionally reload or update UI
-                                                            // location.reload();
-                                                        } else {
-                                                            alert("Error: " + response.message);
-                                                        }
-                                                    },
-                                                    error: function() {
-                                                        alert("AJAX request failed");
-                                                    }
-                                                });
-                                            }
+    $.ajax({
+        type: "POST",
+        url: "/update/status/product",
+        data: {
+            cateid: id
+        },
+        dataType: "json",
+        success: function(response) {
+            if (response.status) {
+                alert("Product status updated to: " + response.new_status);
+                // Optionally reload or update UI
+                // location.reload();
+            } else {
+                alert("Error: " + response.message);
+            }
+        },
+        error: function() {
+            alert("AJAX request failed");
+        }
+    });
+}
 </script>
+
