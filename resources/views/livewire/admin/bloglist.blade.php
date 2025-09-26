@@ -18,7 +18,7 @@
         <i class="bi bi-plus-circle me-1"></i> Add Blog
       </a>
     </div>
-    <div class="card-body">
+    <div class="table-responsive card-body">
       <table id="blogTable" class="table table-hover table-bordered align-middle">
         <thead class="table-dark">
           <tr>
@@ -33,8 +33,8 @@
         <tbody>
           @foreach($blogs as $blog)
           <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>
+            <td class="text-center">{{ $loop->iteration }}</td>
+            <td class="text-center">
               <img src="{{ asset('blog_images/'.$blog->blog_image) }}" class="rounded shadow-sm" width="60" height="60"
                 style="object-fit: cover;">
             </td>
@@ -188,14 +188,34 @@
     });
   });
 
-  // Status Change
-  function changeBlogStatus(id) {
-    $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
-    $.post("/update/status/blog", { blogid: id }, function (res) {
-      alert("Status updated to: " + res.new_status);
-    }).fail(function () { alert("Failed to update"); });
-  }
+function changeBlogStatus(id) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+    $.ajax({
+        type: "POST",
+        url: "/update/status/blog",
+        data: {
+            cateid: id
+        },
+        dataType: "json",
+        success: function(response) {
+            if (response.status) {
+                alert("Blog status updated to: " + response.new_status);
+                // Optionally reload or update UI
+                // location.reload();
+            } else {
+                alert("Error: " + response.message);
+            }
+        },
+        error: function() {
+            alert("AJAX request failed");
+        }
+    });
+}
   // Delete
   function deleteBlog(id) {
     Swal.fire({

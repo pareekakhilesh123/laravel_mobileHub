@@ -17,7 +17,8 @@
             <h4 class="mb-0">All Products </h4>
             <a href="{{ route('Insertproduct') }}" class="btn btn-success btn-sm">+ Add Product</a>
         </div>
-        <div class="card-body">
+     
+        <div class="table-responsive card-body">
             <table id="productTable" class="table table-hover table-striped table-bordered align-middle">
                 <thead class="table-dark">
                     <tr>
@@ -600,7 +601,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // ❌ Thumbnail remove (delegation)
+    //  Thumbnail remove (delegation)
     document.addEventListener("click", function(e) {
         if (e.target.classList.contains("remove-thumb")) {
             let wrapper = e.target.closest(".thumb-wrapper");

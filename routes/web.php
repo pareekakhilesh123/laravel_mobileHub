@@ -9,6 +9,7 @@ use App\Livewire\Blogs;
 use App\Livewire\Productdetails;
 use App\Livewire\Industries;
 use App\Livewire\Thankyou;
+use App\Livewire\Blogdeatails;
 
 use App\Livewire\Pdetail;
 
@@ -35,15 +36,18 @@ Route::get('/products', products::class)->name('products');
 Route::get('/blogs', Blogs::class)->name('blogs');
 
 Route::get('/productdetails/{id}', Productdetails::class);
-Route::get('/detailprod/{id}', Pdetail::class);
+Route::get('/detailprod/{id}/{title}', Pdetail::class);
 Route::post('/postcontact', [Pdetail::class, 'productenquiry'])->name('enqpost');
 
 
 Route::get('/industries', Industries::class)->name('Industries');
 
 Route::get('/thankyou', Thankyou::class)->name('thanks');
+Route::get('/blog-details/{id}/{title}', Blogdeatails::class)->name('');
+
 // static contact page data post 
 Route::post('/contact-us', [contact::class, 'contactpost'])->name('postcontact');
+
 
 
 
@@ -108,6 +112,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
      Route::get('/admin/blog-list', Bloglist::class)->name('bloglist');
        Route::get('delete-blog/{id}', [Bloglist::class, 'deteleblog']);
          Route::post('/update_blog', [Addblog::class, 'updateblog'])->name('blogupdate');
+           Route::post('/update/status/blog', [Bloglist::class, 'changeStatusBlog']);
 
 
 });

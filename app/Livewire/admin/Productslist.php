@@ -113,6 +113,7 @@ public function updateproduct(Request $request)
     return response()->json($subcategories);
 }
 
+
 public function changestatus(Request $req)
     {
         $id = $req->cateid;

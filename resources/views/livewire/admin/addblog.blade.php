@@ -20,12 +20,12 @@
                                 <div class="invalid-feedback">Please enter the blog title.</div>
                             </div>
 
-                            <div class="col-md-12">
-                                <label for="blog_description" class="form-label">Blog Description <span class="text-danger">*</span></label>
-                                <textarea id="blog_description" name="blog_description" class="form-control" rows="4"
-                                    placeholder="Enter description..." required></textarea>
-                                <div class="invalid-feedback">Please enter the blog description.</div>
-                            </div>
+                           <div class="col-md-12">
+    <label for="blog_description" class="form-label">Blog Description <span class="text-danger">*</span></label>
+    <textarea id="blog_description" name="blog_description" class="form-control" rows="4"
+        placeholder="Enter description..." required></textarea>
+    <div class="invalid-feedback">Please enter the blog description.</div>
+</div>
                         </div>
                     </div>
 
@@ -105,6 +105,7 @@
         </div>
     </div>
 
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
     // Thumbnail Preview
     const thumbInput = document.getElementById("blog_image");
@@ -144,10 +145,13 @@
         });
     })();
 
-    // CKEditor
+    //  CKEditor setup
     CKEDITOR.replace('blog_description', {
         height: 200,
         removePlugins: 'easyimage,cloudservices'
     });
+
+    
 </script>
+
 </div>

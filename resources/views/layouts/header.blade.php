@@ -2,7 +2,7 @@
 <html lang="en">
 
  
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
 
@@ -11,13 +11,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="{{$meta_title}}">
     <meta name="description"
-        content="Postup is a Powerful & flexible Creative Agency & Business HTML5 Template. It’s Designed for any types of creative agency, SEO agency, digital marketing, business, startup corporation, landing page and much much more… . We have used latest Bootstrap and HTML. This template is Easy to customize and can bring beauty to your business website interface. Clean Design, UI and UX make it more attractive and eye catchy. This template is very well commented and also have proper help documentation to customize it easily.">
+        content="{{$meta_desc}}">
     <meta name="keywords"
-        content="agency, architecture, clean, creative, design studio, ecommerce HTML, finance, interior, marketing, minimal, onepage, portfolio, restaurant, startup, accountants, advisors, business, coach, coaches, coaching, consultant, consulting, corporate, finance, mentors, professional services, responsive">
+        content="{{$meta_key}}">
 
     <!-- :: Title -->
-    <title>Mobile Hub --Title</title>
+    <title>{{$title}}</title>
 
     <!-- :: Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&amp;display=swap" rel="stylesheet">
@@ -85,122 +86,111 @@
 </button>
 
             <div class="collapse navbar-collapse" id="navtoggleid">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{route('home')}}">Home <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownList-1" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Products
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownList-1">
-                            <a class="dropdown-item" href="{{route('products')}}">All Products</a>
+               <ul class="navbar-nav m-auto"> 
+    <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}" 
+           href="{{ route('home') }}">
+           Home
+        </a>
+    </li>
 
-                            <a class="dropdown-item" href="{{route('home')}}">Our Gallery</a>
-                            <a class="dropdown-item" href="{{route('home')}}">Our Partner</a>
-                            <a class="dropdown-item" href="{{route('home')}}">Testimonials</a>
-                            <a class="dropdown-item" href="{{route('home')}}">FAQ</a>
-                        </div>
-                    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {{ Request::routeIs('products*') ? 'active' : '' }}" 
+           href="#" id="navbarDropdownList-1" role="button" data-toggle="dropdown" 
+           aria-haspopup="true" aria-expanded="false">
+           Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownList-1">
+            <a class="dropdown-item {{ Request::routeIs('products') ? 'active' : '' }}" 
+               href="{{ route('products') }}">
+               All Products
+            </a>
+        </div>
+    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownList-1" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Industries
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownList-1">
-                            <a class="dropdown-item" href="{{route('Industries')}}">Multinational Corporations</a>
-                            <a class="dropdown-item" href="{{route('contact')}}">Small & Medium Enterprises</a>
-                            <!-- <a class="dropdown-item" href="our-gallery.html">Our Gallery</a>
-                            <a class="dropdown-item" href="our-partner.html">Our Partner</a>
-                            <a class="dropdown-item" href="testimonials.html">Testimonials</a>
-                            <a class="dropdown-item" href="fqa.html">FAQ</a> -->
-                        </div>
-                    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {{ Request::routeIs('Industries*') ? 'active' : '' }}" 
+           href="#" id="navbarDropdownList-2" role="button" data-toggle="dropdown" 
+           aria-haspopup="true" aria-expanded="false">
+           Industries
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownList-2">
+            <a class="dropdown-item {{ Request::routeIs('Industries') ? 'active' : '' }}" 
+               href="{{ route('Industries') }}">
+               Multinational Corporations
+            </a>
+        </div>
+    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownList-2" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Blog
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownList-2">
-                            <a class="dropdown-item" href="{{route('blogs')}}">Blog</a>
-                            <a class="dropdown-item" href="single-blog.html">Single Blog</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('contact')}}">contact</a>
-                    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('blogs') ? 'active' : '' }}" 
+           href="{{ route('blogs') }}">
+           Blog
+        </a>
+    </li>
 
+    <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}" 
+           href="{{ route('contact') }}">
+           Contact
+        </a>
+    </li>
+</ul>
 
-
-                </ul>
             </div>
             <div class="social-media">
                 <ul class="icon-nav">
-                    <li><a href="#"><i class="fas fa-share-alt"></i></a></li>
-                    <li><a href="#" class="open-search-box"><i class="fas fa-search"></i></a></li>
+                    
                     <li><a href="#" class="open-side-menu-box"><i class="fas fa-th-list"></i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- :: Search Box -->
-    <div class="search-box">
-        <a href="#" class="exit-search-box"><i class="fas fa-times"></i></a>
-        <form>
-            <input type="search" placeholder="Search Here..">
-            <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
-
     <!-- :: Side Menu Box -->
     <div class="side-menu-box">
         <a href="#" class="exit-side-menu-box"><i class="fas fa-times"></i></a>
         <div class="inner-side-menu">
             <div class="about-side-menu">
-                <h2>Postup</h2>
-                <p>Postup Help You Determining A Goal, Choosing Your Tools And Developing Your Businesses To Make It
+                <h2>Mobile Hub</h2>
+                <p>Mobile Hub Help You Determining A Goal, Choosing Your Tools And Developing Your Businesses To Make It
                     Distinct. We Build Best Digital Products That Function</p>
             </div>
             <div class="latest-works-side-menu">
                 <h3>Latest Works</h3>
                 <ul>
                     <li>
-                        <img class="img-fluid" src="assets/images/gallery/01_gallery.jpg" alt="01 Gallery">
+                        <img class="img-fluid" src="{{asset('assets/images/gallery/01_gallery.jpg')}}" alt="01 Gallery">
                         <a class="open-photo" href="#">
                             <i class="lnr lnr-frame-expand"></i>
                         </a>
                     </li>
                     <li>
-                        <img class="img-fluid" src="assets/images/gallery/02_gallery.jpg" alt="02 Gallery">
+                        <img class="img-fluid" src="{{asset('assets/images/gallery/02_gallery.jpg')}}" alt="02 Gallery">
                         <a class="open-photo" href="#">
                             <i class="lnr lnr-frame-expand"></i>
                         </a>
                     </li>
                     <li>
-                        <img class="img-fluid" src="assets/images/gallery/03_gallery.jpg" alt="03 Gallery">
+                        <img class="img-fluid" src="{{asset('assets/images/gallery/03_gallery.jpg')}}" alt="03 Gallery">
                         <a class="open-photo" href="#">
                             <i class="lnr lnr-frame-expand"></i>
                         </a>
                     </li>
                     <li>
-                        <img class="img-fluid" src="assets/images/gallery/04_gallery.jpg" alt="04 Gallery">
+                        <img class="img-fluid" src="{{asset('assets/images/gallery/04_gallery.jpg')}}" alt="04 Gallery">
                         <a class="open-photo" href="#">
                             <i class="lnr lnr-frame-expand"></i>
                         </a>
                     </li>
                     <li>
-                        <img class="img-fluid" src="assets/images/gallery/05_gallery.jpg" alt="05 Gallery">
+                        <img class="img-fluid" src="{{asset('assets/images/gallery/05_gallery.jpg')}}" alt="05 Gallery">
                         <a class="open-photo" href="#">
                             <i class="lnr lnr-frame-expand"></i>
                         </a>
                     </li>
                     <li>
-                        <img class="img-fluid" src="assets/images/gallery/06_gallery.jpg" alt="06 Gallery">
+                        <img class="img-fluid" src="{{asset('assets/images/gallery/06_gallery.jpg')}}" alt="06 Gallery">
                         <a class="open-photo" href="#">
                             <i class="lnr lnr-frame-expand"></i>
                         </a>
@@ -345,6 +335,20 @@
     <!-- :: CounterUp -->
     <script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
 
+
+    <script>
+        function name_validate(inputElement) {
+            inputElement.value = inputElement.value.replace(/[^a-z A-Z]/g, '');
+        }
+
+        function mobile_valid(inputElement) {
+            inputElement.value = inputElement.value.replace(/[^0-9]/g, '');
+        }
+
+        function removeSpecialChars(input) {
+            input.value = input.value.replace(/[^a-zA-Z0-9 ]/g, '');
+        }
+    </script>
     <!-- :: Main -->
     <script src="{{asset('assets/js/main.js')}}">
         

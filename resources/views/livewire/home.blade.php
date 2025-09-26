@@ -13,8 +13,8 @@
                             <p>Delivering cutting-edge electronic & IT solutions that shape the future of technology and
                                 empower industries worldwide.</p>
                             <div class="buttons">
-                                <a href="#about" class="move-section btn-1">Get Started</a>
-                                <a href="#" class="btn-2">read More</a>
+                                <a href="{{route('products')}}" class="btn-1">Get Started</a>
+                                <a href="{{route('contact')}}" class="btn-2">read More</a>
                             </div>
                         </div>
                     </div>

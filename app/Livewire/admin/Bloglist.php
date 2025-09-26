@@ -25,6 +25,32 @@ class Bloglist extends Component
         return back()->with('success', 'blog  deleted successfully!');
     }
 
+
+
+    public function changestatusblog(Request $req)
+    {
+        $id = $req->cateid;
+
+        $blogs = blog::find($id);
+
+        if (!$blogs) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Product not found'
+            ]);
+        }
+
+        // Toggle status
+        $blogs->status = $blogs->status === "Active" ? "Disable" : "Active";
+        $blogs->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Status updated successfully',
+            'new_status' => $blogs->status
+        ]);
+    }
+
           
 
 

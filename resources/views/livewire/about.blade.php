@@ -7,7 +7,7 @@
                     <div class="head-info text-center">
                         <h1>Our blog </h1>
                         <ul class="list-breadcrumb">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a  href="{{ route('home') }}">Home</a></li>
                             <li><i class="fas fa-angle-right"></i></li>
                             <li>Blog</li>
                         </ul>
