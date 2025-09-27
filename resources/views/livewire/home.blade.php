@@ -42,10 +42,9 @@
 
                 <!-- Left Card -->
                 <div class="col-md-6">
-                    <div
-                        class="rounded  text-white position-relative d-flex flex-column justify-content-center">
-                        <img src="assets/images/sponsors/09_sponsors.jpg" alt="Sponsor showcase" class="rounded"
-                            style="height: 400px; object-fit: cover;" />
+                    <div class="rounded  text-white position-relative d-flex flex-column justify-content-center">
+                        <img src="{{asset('assets/images/sponsors/09_sponsors.jpg')}}" alt="Sponsor showcase"
+                            class="rounded" style="height: 400px; object-fit: cover;" />
                     </div>
                 </div>
 
@@ -117,42 +116,42 @@
 
             <div class="row">
                 @foreach($products as $product)
-               <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-        <div class="blog-item h-100">
-            <!-- Product Image -->
-            <div class="img-blog">
-                <img class="img-fluid products-img-radius w-100 h-100" 
-                    style="object-fit: cover; max-height: 280px;" 
-                    src="{{ asset('allimage/' . $product->thumbnail_image) }}" 
-                    alt="{{ $product->product_title }}">
-            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="blog-item h-100">
+                        <!-- Product Image -->
+                        <div class="img-blog">
+                            <img class="img-fluid products-img-radius w-100 h-100"
+                                style="object-fit: cover; max-height: 280px;"
+                                src="{{ asset('allimage/' . $product->thumbnail_image) }}"
+                                alt="{{ $product->product_title }}">
+                        </div>
 
-            <!-- Product Text -->
-            <div class="text-blog p-3">
-                <h5 class="title-blog">
-                    <a href="{{ url('detailprod/' . $product->id) }}">
-                        {{ $product->product_title }}
-                    </a>
-                </h5>
-                <p>
-                    {{ Str::limit(strip_tags($product->product_description), 100, '...') }}
-                </p>
-                <div class="buttons">
-                    <a href="{{ url('detailprod/' . $product->id) }}" class="blog-open mt-2">Read More</a>
+                        <!-- Product Text -->
+                        <div class="text-blog p-3">
+                            <h5 class="title-blog">
+                                <a href="{{ url('detailprod/' . $product->id . '/' . str_replace(' ', '_', $product->product_title)) }}">
+                                    {{ $product->product_title }}
+                                </a>
+                            </h5>
+                            <p>
+                                {{ Str::limit(strip_tags($product->product_description), 100, '...') }}
+                            </p>
+                            <div class="buttons">
+                                <a href="{{ url('detailprod/' . $product->id . '/' . str_replace(' ', '_', $product->product_title)) }}" class="blog-open mt-2">Read More</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
                 @endforeach
 
 
                 <div class="col-md-12">
-                                <div class="pagination-blog-area">
-                                    <div class="d-flex justify-content-center">
-                                        <a href="{{ route('products') }}" class="btn-1">View All</a>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="pagination-blog-area">
+                        <div class="d-flex justify-content-center">
+                            <a href="{{ route('products') }}" class="btn-1">View All</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
     </section>
@@ -368,95 +367,7 @@
     </section>
 
     <!--  7Section -->
-    <section class="testimonials py-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="sec-title text-center">
-                        <h2>What Clients Said</h2>
-                        <h3>Great Talk From <span>Customer</span></h3>
-                        <p>Postup Help You Determining A Goal, Choosing Your Tools And Developing Your Businesses To
-                            Make It Distinct. We Build Best Digital Products That Function</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonials-box owl-carousel owl-theme">
-                <div class="testimonials-item">
-                    <div class="box-item">
-                        <i class="fas fa-quote-right item-quote"></i>
-                        <p class="text-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                        <ul class="rate-star">
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                    </div>
-                    <div class="item-talk">
-                        <div class="img-box">
-                            <img class="img-fluid" src="assets/images/testimonials/01_testimonials.jpg"
-                                alt="01 Testimonials">
-                        </div>
-                        <div class="info">
-                            <h5>Amir Mohamed</h5>
-                            <span>Front End</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonials-item">
-                    <div class="box-item">
-                        <i class="fas fa-quote-right item-quote"></i>
-                        <p class="text-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                        <ul class="rate-star">
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                    </div>
-                    <div class="item-talk">
-                        <div class="img-box">
-                            <img class="img-fluid" src="assets/images/testimonials/02_testimonials.jpg"
-                                alt="02 Testimonials">
-                        </div>
-                        <div class="info">
-                            <h5>Abdelrazek Ali</h5>
-                            <span>Back End</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonials-item">
-                    <div class="box-item">
-                        <i class="fas fa-quote-right item-quote"></i>
-                        <p class="text-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                        <ul class="rate-star">
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star active"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                    </div>
-                    <div class="item-talk">
-                        <div class="img-box">
-                            <img class="img-fluid" src="assets/images/testimonials/03_testimonials.jpg"
-                                alt="03 Testimonials">
-                        </div>
-                        <div class="info">
-                            <h5>Ahmed Nagah</h5>
-                            <span>Mobile App</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <x-testimonials />
 
 
 
@@ -478,64 +389,30 @@
             </div>
             <div class="sponsors-box owl-carousel owl-theme">
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/01_sponsors.png" alt="01 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/01_sponsors.png')}}" alt="01 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/02_sponsors.png" alt="02 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/02_sponsors.png')}}" alt="02 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/03_sponsors.png" alt="03 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/03_sponsors.png')}}" alt="03 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/04_sponsors.png" alt="04 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/04_sponsors.png')}}" alt="04 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/05_sponsors.png" alt="05 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/05_sponsors.png')}}" alt="05 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/06_sponsors.png" alt="06 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/06_sponsors.png')}}" alt="06 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/07_sponsors.png" alt="07 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/07_sponsors.png')}}" alt="07 Sponsors">
                 </div>
                 <div class="sponsors-item">
-                    <img class="img-fluid" src="assets/images/sponsors/08_sponsors.png" alt="08 Sponsors">
+                    <img class="img-fluid" src="{{asset('assets/images/sponsors/08_sponsors.png')}}" alt="08 Sponsors">
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- 9section -->
-
-
-
-
-
-
-
-
-    <!-- 10section -->
-
-
-
-
-
-
-    <!-- 11section  -->
-
-
-
-
-
 </div>

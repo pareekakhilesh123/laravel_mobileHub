@@ -47,7 +47,7 @@
                         <!-- Product Text -->
                         <div class="text-blog p-3">
                             <h5 class="title-blog">
-                                <a href="{{ url('detailprod/'.$product->id) }}">
+                                <a href="{{ url('detailprod/' . $product->id . '/' . str_replace(' ', '_', $product->product_title)) }}">
                                     {{ $product->product_title }}
                                 </a>
                             </h5>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="item-talk">
                         <div class="img-box">
-                            <img class="img-fluid" src="assets/images/testimonials/01_testimonials.jpg"
+                            <img class="img-fluid" src="{{asset('assets/images/testimonials/01_testimonials.jpg')}}"
                                 alt="01 Testimonials">
                         </div>
                         <div class="info">
@@ -122,7 +122,7 @@
                     </div>
                     <div class="item-talk">
                         <div class="img-box">
-                            <img class="img-fluid" src="assets/images/testimonials/02_testimonials.jpg"
+                            <img class="img-fluid" src="{{asset('assets/images/testimonials/02_testimonials.jpg')}}"
                                 alt="02 Testimonials">
                         </div>
                         <div class="info">
@@ -146,7 +146,7 @@
                     </div>
                     <div class="item-talk">
                         <div class="img-box">
-                            <img class="img-fluid" src="assets/images/testimonials/03_testimonials.jpg"
+                            <img class="img-fluid" src="{{asset('assets/images/testimonials/03_testimonials.jpg')}}"
                                 alt="03 Testimonials">
                         </div>
                         <div class="info">

@@ -85,7 +85,7 @@ class Insertcategory extends Component
     
      
 
-        return back();
+       return redirect()->route('Productslist');
     }
  
 

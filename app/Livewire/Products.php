@@ -14,7 +14,7 @@ class Products extends Component
         $meta_title = 'about';
         $meta_desc = 'about';
         $meta_key = 'about';
-          $data = Allproducts::paginate(20); 
+          $data = Allproducts::where('status','Active')->paginate(20); 
 
         return view('livewire.products' ,  ['products' => $data ])->layout('layouts.header',['meta_key'=>$meta_key,'meta_title'=>$meta_title,'meta_desc'=>$meta_desc,'title'=>$title]);
     }

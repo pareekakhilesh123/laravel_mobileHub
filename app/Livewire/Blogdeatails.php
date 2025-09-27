@@ -22,7 +22,7 @@ class Blogdeatails extends Component
         $meta_desc = $meta->meta_description??$meta->blog_title;
         $meta_key = $meta->meta_keywords??$meta->blog_title;     
 
-      $blog = blog::where('id', '!=', $this->id)->get();
+      $blog = blog::where('id', '!=', $this->id)->get()->where('status','Active');
         return view('livewire.blogdeatails', ['blogs' => $blog]   )->layout('layouts.header',['meta_key'=>$meta_key,'meta_title'=>$meta_title,'meta_desc'=>$meta_desc,'title'=>$title]);
     }
 }

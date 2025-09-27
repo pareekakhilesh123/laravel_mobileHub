@@ -1,15 +1,39 @@
 <div>
 
+<style>
+    .mission-section h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.mission-section p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.mission-section img {
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.mission-section img:hover {
+  transform: scale(1.05);
+}
+</style>
+
+
 <section class="breadcrumb-header" id="page">
             <div class="overlay"></div>
             <div class="container">
                 <div class="banner">
                     <div class="head-info text-center">
-                        <h1>Our blog </h1>
+                        <h1>About Us </h1>
                         <ul class="list-breadcrumb">
                             <li><a  href="{{ route('home') }}">Home</a></li>
                             <li><i class="fas fa-angle-right"></i></li>
-                            <li>Blog</li>
+                            <li>About us</li>
                         </ul>
                     </div>
                 </div>
@@ -17,173 +41,124 @@
         </section>
 
 
- 
 
-   <section>
-        <div class="about-one">
-            <div class="container-fluid">
-                <div class="row">
+           <section class="py-5 ">
+        <div class="container">
+            <div class="col-md-8 offset-md-2">
+                <div class="sec-title text-center">
+                    <h2>About US </h2>
+                    <h3>Innovation Needs
+                        <span>the Right Circuit</span>
+                    </h3>
+                    <!-- <p>From concept to production—MobileHub designs, engineers, and manufactures high-precision
+                                    electronic solutions. We build robust digital products—PCBs, embedded systems, and IoT
+                                    devices—that perform flawlessly in the real world.</p> -->
+                </div>
+            </div>
 
-                    <!-- Image Box -->
-                    <div class="col-md-6">
-                        <div class="about-img-box">
-                            <div class="img-box"></div>
+            <div class="row g-4 align-items-stretch">
+
+                <!-- Left Card -->
+                <div class="col-md-6">
+                    <div
+                        class="rounded  text-white position-relative d-flex flex-column justify-content-center">
+                        <img src="assets/images/sponsors/09_sponsors.jpg" alt="Sponsor showcase" class="rounded"
+                            style="height: 400px; object-fit: cover;" />
+                    </div>
+                </div>
+
+                <!-- Right Side  -->
+                <div class="sec-title  col-md-6 d-flex flex-column justify-content-center ">
+                    <h3 class="fw-bold mb-4 pl-3 ">About Mobile hub </h3>
+
+                    <div class="mb-3 d-flex sec-title ">
+                        <i class="bi bi-plus-circle text-primary fs-4 me-3"></i>
+                        <div>
+                            <p> Welcome to <strong> MobileHub</strong>, your trusted destination for high-quality
+                                adapters
+                                and electronic accessories.
+                                We believe that even the smallest product can make the biggest difference in your daily
+                                life.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Text Box -->
-                    <div class="col-md-6">
-                        <div class="about-text-box">
-                            <div class="sec-title">
-                                <h3>Smart Accessories That <span>Power Your Devices</span></h3>
-                                <p>
-                                    At <strong>MobileHub</strong>, we believe the right accessories can transform your
-                                    mobile
-                                    experience. From high-speed chargers to premium audio and durable cables,
-                                    our products are designed to keep you connected anytime, anywhere.
-                                </p>
-                            </div>
-
-                            <!-- Features List -->
-                            <ul class="core-features">
-                                <li><i class="fas fa-check"></i>
-                                    <h4>Fast & Safe Charging Solutions</h4>
-                                </li>
-                                <li><i class="fas fa-check"></i>
-                                    <h4>Durable & Long-Lasting Accessories</h4>
-                                </li>
-                                <li><i class="fas fa-check"></i>
-                                    <h4>Crystal-Clear Audio Experience</h4>
-                                </li>
-                                <li><i class="fas fa-check"></i>
-                                    <h4>Modern & Compact Designs</h4>
-                                </li>
-                                <li><i class="fas fa-check"></i>
-                                    <h4>Affordable Without Compromise</h4>
-                                </li>
-                                <li><i class="fas fa-check"></i>
-                                    <h4>Trusted by Thousands of Customers</h4>
-                                </li>
-                            </ul>
+                    <div class="mb-3 d-flex sec-title">
+                        <i class="bi bi-check2-square text-primary fs-4 me-3"></i>
+                        <div>
+                            <p> <strong>With a commitment to reliability, durability, and innovation, our
+                                    products</strong>
+                                are designed to keep your devices connected and your life moving without interruptions.
+                                From
+                                adapters to essential tech accessories, every item we create undergoes strict quality
+                                checks
+                                to ensure long-lasting performance.
+                            </p>
                         </div>
                     </div>
+
+                    <div class="mb-3 d-flex">
+                        <i class="bi bi-clock-history text-primary fs-4 me-3"></i>
+                        <div>
+                            <p> <strong>At MobileHub ,</strong> we don’t just sell products — we build trust. Our
+                                mission is
+                                to deliver smart, affordable, and dependable solutions that simplify your everyday tech
+                                experience.
+                            </p>
+                        </div>
+                    </div>
+
 
                 </div>
+
             </div>
         </div>
     </section>
+ 
 
-      
-   <section class="support py-100">
-  <div class="overlay"></div>
+<section class="mission-section py-5">
   <div class="container">
-    <div class="row align-items-center support-box">
-      <!-- Left Content -->
-      <div class="col-lg-8 col-md-7 col-sm-12 mb-4 mb-lg-0">
-        <h2 class="display-5 font-weight-bold mb-3">
-          Power Your Business with <span class="text-primary">MobileHub</span>
-        </h2>
-        <p class="lead mb-0">
-          Smart Electronic &amp; IT Solutions for a Connected Future. 
-          Delivering innovation, reliability, and quality to industries worldwide.
+    <div class="row align-items-center mb-5">
+      <!-- Text Left | Image Right -->
+      <div class="col-md-6">
+        <h2 class="fw-bold">OUR MISSION</h2>
+        <p>
+          Our mission is to preserve the rich heritage of traditional Indian
+          craftsmanship while providing customers with high-quality, authentic
+          products. We aim to support local artisans and bring the timeless art
+          of hand-block printing and pure cotton fabric to homes worldwide.
         </p>
       </div>
-
-      <!-- Right Button -->
-      <div class="col-lg-4 col-md-5 col-sm-12 text-lg-right text-center">
-        <a href="#" class="btn btn-primary btn-lg">Get Report</a>
+      <div class="col-md-6 text-center">
+        <img src="{{asset('assets/images/sponsors/09_sponsors.jpg')}}" alt="Our Mission" class="img-fluid rounded-3 shadow-sm" />
       </div>
     </div>
 
-    <!-- Feature List -->
-    <div class="feat mt-4">
-      <i class="fas fa-check text-success mr-2"></i> 
-      An Invincible Online Clout
+    <div class="row align-items-center">
+      <!-- Image Left | Text Right -->
+      <div class="col-md-6 text-center">
+        <img src="{{asset('assets/images/sponsors/09_sponsors1.jpg')}}" alt="Sustainability" class="img-fluid rounded-3 shadow-sm" />
+      </div>
+      <div class="col-md-6">
+        <h2 class="fw-bold">SUSTAINABILITY & VALUES</h2>
+        <p>
+          We strongly believe in eco-friendly practices, sustainable production,
+          and fair trade. By using natural dyes, pure cotton, and ethical
+          methods, we ensure our products are both skin-friendly and
+          environmentally responsible, keeping tradition alive for future
+          generations.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-    <section class="testimonials py-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <div class="sec-title text-center">
-                            <h2>What Clients Said</h2>
-                            <h3>Great Talk From <span>Customer</span></h3>
-                            <p>Postup Help You Determining A Goal, Choosing Your Tools And Developing Your Businesses To Make It Distinct. We Build Best Digital Products That Function</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonials-box owl-carousel owl-theme">
-                    <div class="testimonials-item">
-                        <div class="box-item">
-                            <i class="fas fa-quote-right item-quote"></i>
-                            <p class="text-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            <ul class="rate-star">
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="item-talk">
-                            <div class="img-box">
-                                <img class="img-fluid" src="assets/images/testimonials/01_testimonials.jpg" alt="01 Testimonials">
-                            </div>
-                            <div class="info">
-                                <h5>Amir Mohamed</h5>
-                                <span>Front End</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonials-item">
-                        <div class="box-item">
-                            <i class="fas fa-quote-right item-quote"></i>
-                            <p class="text-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            <ul class="rate-star">
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="item-talk">
-                            <div class="img-box">
-                                <img class="img-fluid" src="assets/images/testimonials/02_testimonials.jpg" alt="02 Testimonials">
-                            </div>
-                            <div class="info">
-                                <h5>Abdelrazek Ali</h5>
-                                <span>Back End</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonials-item">
-                        <div class="box-item">
-                            <i class="fas fa-quote-right item-quote"></i>
-                            <p class="text-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                            <ul class="rate-star">
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star active"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div class="item-talk">
-                            <div class="img-box">
-                                <img class="img-fluid" src="assets/images/testimonials/03_testimonials.jpg" alt="03 Testimonials">
-                            </div>
-                            <div class="info">
-                                <h5>Ahmed Nagah</h5>
-                                <span>Mobile App</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
+
+      
+ 
+
+   <x-testimonials />
 
 
 </div>

@@ -23,7 +23,7 @@ class Pdetail extends Component
         $meta_title = $meta->meta_title??$meta->product_title;
         $meta_desc = $meta->meta_description??$meta->product_title;
         $meta_key = $meta->meta_keywords??$meta->product_title;
-         $relate = Allproducts::where('id', '!=', $this->id)->limit(3)->get();
+         $relate = Allproducts::where('id', '!=', $this->id)->where('status','Active')->limit(3)->get();
         return view('livewire.pdetail' ,['relproducts' => $relate ])->layout('layouts.header',['meta_key'=>$meta_key,'meta_title'=>$meta_title,'meta_desc'=>$meta_desc,'title'=>$title]);
     }
 

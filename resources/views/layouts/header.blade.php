@@ -93,6 +93,13 @@
            Home
         </a>
     </li>
+    
+     <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('about') ? 'active' : '' }}" 
+           href="{{ route('about') }}">
+           About
+        </a>
+    </li>
 
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle {{ Request::routeIs('products*') ? 'active' : '' }}" 
@@ -135,6 +142,7 @@
            Contact
         </a>
     </li>
+   
 </ul>
 
             </div>

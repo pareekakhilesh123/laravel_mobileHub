@@ -15,7 +15,7 @@ class Home extends Component
         $meta_desc = 'about';
         $meta_key = 'about';
 
-           $data = Allproducts::paginate(6); 
+           $data = Allproducts::where('status','Active')->paginate(6); 
         return view('livewire.home'  , ['products' => $data ])->layout('layouts.header',['meta_key'=>$meta_key,'meta_title'=>$meta_title,'meta_desc'=>$meta_desc,'title'=>$title]);
     }
 }

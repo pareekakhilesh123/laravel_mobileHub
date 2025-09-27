@@ -29,7 +29,7 @@
         line-height: 1.7;
         font-size: 1rem;
         color: #555;
-        text-align: center;
+
     }
     </style>
     <section class="breadcrumb-header" id="page">
@@ -39,8 +39,7 @@
                 <div class="head-info text-center">
                     <h1>Blog Details </h1>
                     <ul class="list-breadcrumb">
-                        <li><a  href="{{ route('home') }}"
-                        >Home</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                         <li><i class="fas fa-angle-right"></i></li>
                         <li>Blog Details</li>
                     </ul>
@@ -50,10 +49,10 @@
     </section>
 
     <div class="container my-5">
-        <div class="text-center">
+        <div class="">
 
             <!-- Date -->
-            <span class="blog-date">   {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
+            <span class="blog-date"> {{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
 
             <!-- Title -->
             <h2 class="blog-title">{{$data->blog_title}}</h2>
@@ -62,10 +61,10 @@
             <img src="{{ asset('blog_images/'.$data->blog_image) }}" alt="Blog Image" class="blog-image mb-4">
 
             <!-- Description -->
-            <p class="blog-description">
-               {!! $data->blog_description !!}
+            <p class="blog-description text-start">
+                {!! $data->blog_description !!}
             </p>
-    
+
         </div>
 
 

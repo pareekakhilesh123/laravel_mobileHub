@@ -207,7 +207,7 @@
                         <!-- Product Text -->
                         <div class="text-blog p-3">
                             <h5 class="title-blog">
-                                <a href="{{ url('detailprod/' . $product->id) }}">
+                                <a href="{{ url('detailprod/' . $product->id . '/' . str_replace(' ', '_', $product->product_title)) }}">
                                     {{ $product->product_title }}
                                 </a>
                             </h5>
@@ -215,7 +215,7 @@
                                 {{ Str::limit(strip_tags($product->product_description), 100, '...') }}
                             </p>
                             <div class="buttons">
-                                <a href="{{ url('detailprod/' . $product->id) }}" class="blog-open mt-2">Read More</a>
+                                <a href="{{ url('detailprod/' . $product->id . '/' . str_replace(' ', '_', $product->product_title)) }}" class="blog-open mt-2">Read More</a>
                             </div>
                         </div>
                     </div>

@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\home;
-use App\Livewire\about;
-use App\Livewire\products;
-use App\Livewire\contact;
+use App\Livewire\Home;
+use App\Livewire\About;
+use App\Livewire\Products;
+use App\Livewire\Contact;
 use App\Livewire\Blogs;
-use App\Livewire\Productdetails;
 use App\Livewire\Industries;
 use App\Livewire\Thankyou;
 use App\Livewire\Blogdeatails;
@@ -35,7 +34,7 @@ Route::get('/contact-us', contact::class)->name('contact');
 Route::get('/products', products::class)->name('products');
 Route::get('/blogs', Blogs::class)->name('blogs');
 
-Route::get('/productdetails/{id}', Productdetails::class);
+
 Route::get('/detailprod/{id}/{title}', Pdetail::class);
 Route::post('/postcontact', [Pdetail::class, 'productenquiry'])->name('enqpost');
 
@@ -53,9 +52,7 @@ Route::post('/contact-us', [contact::class, 'contactpost'])->name('postcontact')
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-  // Route::get('/dashboard', function () {
-  //     return view('dashboard');
-  // })->name('dashboard');
+ 
 
   Route::get('/admin', Dashboard::class)->name('Dashboard');
   Route::get('/admin/main_category', Maincategory::class)->name('Maincategory');
